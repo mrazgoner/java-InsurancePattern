@@ -12,6 +12,7 @@ public class InsurancePattern {
 		console.setVisible(true);
 		System.setOut(outStream.getPrintStream());
 		System.out.println("test");
+		///
 		
 	}
 

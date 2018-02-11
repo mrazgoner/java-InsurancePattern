@@ -23,7 +23,7 @@ public class ConsoleScreen extends JFrame{
 		setSize(800, 650);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		//setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(20, 30, 750, 540);

@@ -3,6 +3,8 @@ package com.gui;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
+import com.main.PrintObserver;
+
 import javax.swing.JScrollPane;
 
 /**
@@ -12,7 +14,7 @@ import javax.swing.JScrollPane;
  */
 
 @SuppressWarnings("serial")
-public class ConsoleScreen extends JFrame{
+public class ConsoleScreen extends JFrame implements PrintObserver{
 
 	private JTextArea textArea;
 

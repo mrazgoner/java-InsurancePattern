@@ -16,6 +16,7 @@ public class InsurancePattern {
 
 	}
 
+	
 	static private void setupOutput()
 	{
 		console = new ConsoleScreen();

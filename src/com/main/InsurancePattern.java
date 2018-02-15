@@ -1,32 +1,29 @@
 package com.main;
 
-import java.util.ArrayList;
+
+import java.util.Date;
 
 import com.gui.ConsoleScreen;
-import com.settings.Setting;
-import com.settings.SettingsXMLFile;
+import com.settings.SettingsDataAccess;
 
 public class InsurancePattern {
 
 	static ConsoleScreen console;
 	static Logger logger;
 	static OutStreamPrinter outStream;
+	static SettingsDataAccess settings;
 
 	public static void main(String[] args) {
 
 		setupOutput();
 
 		console.setVisible(true);
+		settings = new SettingsDataAccess("settings.xml");
+		logger = new Logger(settings.getLoggerPath());
+		outStream.addObserver(logger);
 		
-		ArrayList<Setting> list1  = new ArrayList<Setting>();
-		ArrayList<Setting> list2  = new ArrayList<Setting>();
+		System.out.println(new Date());
 		
-		list1.add(new Setting("name","123"));
-		list2.add(new Setting("name","345"));
-		
-		SettingsXMLFile test = new SettingsXMLFile("test.xml");
-		test.UpdateDocument(list1);
-		test.parseDocument(list2);
 
 	}
 
@@ -34,11 +31,9 @@ public class InsurancePattern {
 	static private void setupOutput()
 	{
 		console = new ConsoleScreen();
-		logger = new Logger("default.txt");
 		outStream = new OutStreamPrinter();
 
 		outStream.addObserver(console);
-		outStream.addObserver(logger);
 
 		System.setOut(outStream.getPrintStream());
 		

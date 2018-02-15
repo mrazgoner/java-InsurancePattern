@@ -15,6 +15,14 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * 
+ * a class that reads and writes to an XML Document
+ * stored in a file. 
+ * 
+ * @author Michael
+ *
+ */
 public class SettingsXMLFile {
 
 	private File file; 
@@ -26,7 +34,19 @@ public class SettingsXMLFile {
 
 	}
 
+	
+	public SettingsXMLFile(File file) {
 
+		this.file = file;
+
+	}
+
+	/**
+	 * updates the entire file with the contents of the Array list
+	 * of settings
+	 * 
+	 * @param fields
+	 */
 	public void UpdateDocument(ArrayList<Setting> fields)
 	{
 
@@ -43,7 +63,7 @@ public class SettingsXMLFile {
 			for(Setting field : fields) {
 
 				Element name = doc.createElement(field.getName());
-				name.appendChild(doc.createTextNode(field.toString()));
+				name.appendChild(doc.createTextNode(field.getValue()));
 				rootElement.appendChild(name);
 
 			}
@@ -67,8 +87,14 @@ public class SettingsXMLFile {
 
 	}
 
-
-	public void parseDocument(ArrayList<Setting> fields) {
+	/**
+	 * Reads the values stored in the XML file.
+	 * 
+	 * @param fields
+	 * @return the same input Array List with updated values,
+	 * 			if the XML is invalid returns null.
+	 */
+	public ArrayList<Setting> parseDocument(ArrayList<Setting> fields) {
 
 		try {
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -86,17 +112,16 @@ public class SettingsXMLFile {
 					field.setValue(nNode.getTextContent());
 				}
 			}
+			
+			return fields;
 
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 
-	}
-
-
-
-
+	}// parseDocument
 
 
 }	

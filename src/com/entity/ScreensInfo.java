@@ -53,6 +53,16 @@ public class ScreensInfo {
 	public static final String EXTERNAL_PAYMENT_SCREEN = "/com/gui/ExternalPaymentUI.fxml";
 	
 	/**
+	 *  external payment screen path
+	 */
+	public static final String LOGGER_SCREEN = "/com/gui/LoggerUI.fxml";
+	
+	/**
+	 *  Set logger screen title
+	 */
+	public static final String LOGGER_TITLE = "INSURANCE - LOGGER";
+	
+	/**
 	 *  Set external payment screen title
 	 */
 	public static final String EXTERNAL_PAYMENT_TITLE = "Pay Secure with ExtPayment";

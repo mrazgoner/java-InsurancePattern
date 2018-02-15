@@ -78,6 +78,21 @@ public class HomepageController implements ScreensIF {
 	 */
 	private static ArrayList<String> subscription;
 	
+	
+    /**
+     * initialize page variable
+     */
+    public void initialize() {
+		if (page != null)
+		 {
+			try {
+				loadPage(page);
+				page=null;
+			} catch (IOException e) {
+				e.printStackTrace();
+			} 
+		 }
+    }
 
 	/*
 	 * (non-Javadoc)

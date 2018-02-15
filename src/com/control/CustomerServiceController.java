@@ -22,6 +22,8 @@ import entity.User;
 */
 import com.enums.ActionType;
 import com.interfaces.ScreensIF;
+import com.control.HomepageController;
+import com.control.ScreenController;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,7 +67,11 @@ public class CustomerServiceController implements ScreensIF {
 	 */
 	@FXML private Button existingClaimsButton;
 
-	
+	/**
+	 * static reference of user home page.
+	 */
+	private static HomepageController userMain;
+
 	
 
 	/*
@@ -114,40 +120,6 @@ public class CustomerServiceController implements ScreensIF {
 			return;
 	}
 	
-	/**
-	 * this method load the page to the content AnchorPane.
-	 * @param screenPath The path of the next screen.
-	 * @throws IOException IO exception.
-	 */
-	@FXML
-	public void loadPage(String screenPath) throws IOException {
-				try {
-					if(content.getChildren().size()>0)
-						content.getChildren().remove(0);
-					Parent root = FXMLLoader.load(getClass().getResource(screenPath));
-					content.getChildren().add(root);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-	}
-	
-	/** Setter for page.
-	 * @param page The page that load in the AnchorPane.
-	 */
-	public static void setPage(String pageToLoad)
-	{
-		page = pageToLoad;
-	}
-	
-	/** Getter for page.
-	 * @return The page that load in the AnchorPane.
-	 */
-	public String getPage()
-	{
-		return page;
-	}
-
-	
 
 	
 	/**
@@ -157,7 +129,15 @@ public class CustomerServiceController implements ScreensIF {
 	 */
 	@FXML
 	public void newClaimButtonPressed(ActionEvent event) throws IOException {
-		loadPage(ScreensInfo.OPEN_CLAIM_SCREEN);
+		userMain = new HomepageController();
+		userMain.setPage(ScreensInfo.OPEN_CLAIM_SCREEN);
+		ScreenController screenController = new ScreenController();
+		try {
+			screenController.replaceSceneContent(ScreensInfo.HOMEPAGE_SCREEN,ScreensInfo.HOMEPAGE_TITLE);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 	}
 	
 	/**
@@ -167,7 +147,15 @@ public class CustomerServiceController implements ScreensIF {
 	 */
 	@FXML
 	public void existingClaimsButtonPressed(ActionEvent event) throws IOException {
-		//loadPage(ScreensInfo.SALES_SCREEN);
+		userMain = new HomepageController();
+		userMain.setPage(ScreensInfo.EXISTING_CLAIMS_SCREEN);
+		ScreenController screenController = new ScreenController();
+		try {
+			screenController.replaceSceneContent(ScreensInfo.HOMEPAGE_SCREEN,ScreensInfo.HOMEPAGE_TITLE);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 	}
 	
 

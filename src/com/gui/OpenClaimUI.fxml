@@ -35,5 +35,10 @@
       </GridPane>
       <Button fx:id="clearButton" layoutX="555.0" layoutY="493.0" mnemonicParsing="false" onAction="#clearButtonPressed" text="Clear" />
       <Button fx:id="submitButton" layoutX="432.0" layoutY="493.0" mnemonicParsing="false" onAction="#submitButtonPressed" text="Submit" />
+      <Button fx:id="backButton" layoutX="727.0" layoutY="557.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="46.0" prefWidth="127.0" text="&lt; Back">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

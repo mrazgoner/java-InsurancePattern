@@ -27,7 +27,7 @@ public class ClientUI extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			
+			//
 		     ScreenController.setStage(primaryStage);
 			 Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	

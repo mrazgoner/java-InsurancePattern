@@ -36,6 +36,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
@@ -59,6 +60,11 @@ public class HomepageController implements ScreensIF {
 	@FXML private Button salesButton;
 	
 	/**
+	 * special font.
+	 */
+	@FXML private Font x1;
+	
+	/**
 	 * Button for customer service.
 	 */
 	@FXML private Button customerServiceButton;
@@ -67,6 +73,11 @@ public class HomepageController implements ScreensIF {
 	 * Button for creating a new customer.
 	 */
 	@FXML private Button createNewCustomerButton;
+	
+	/**
+	 * Button for showing the logger.
+	 */
+	@FXML private Button loggerButton;
 
 	/**
 	 * logo of application.
@@ -229,6 +240,17 @@ public class HomepageController implements ScreensIF {
 	public void customerServiceButtonPressed(ActionEvent event) throws IOException {
 		loadPage(ScreensInfo.CUSTOMER_SERVICE_SCREEN);
 	}
+	
+	/**
+	 * Handler when pressed "logger". this function opens the logger page.
+	 * @param event Gets the ActionEvent when the function called.
+	 * @throws IOException IO exception.
+	 */
+	@FXML
+	public void loggerButtonPressed(ActionEvent event) throws IOException {
+		loadPage(ScreensInfo.LOGGER_SCREEN);
+	}
+	
 	
 	/**
 	 * Handler when pressed "create new customer". this function open the create new customer form.

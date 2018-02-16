@@ -29,37 +29,20 @@ public class ClientUI extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			//
+				
 		     ScreenController.setStage(primaryStage);
 			 Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 	
 		     ScreenController screenController = new ScreenController();
 		     screenController.replaceSceneContent(ScreensInfo.HOMEPAGE_SCREEN,ScreensInfo.HOMEPAGE_TITLE);
+
 		     primaryStage.setResizable(false);
+		     primaryStage.show();
 		     
 			 primaryStage.setX(primaryScreenBounds.getMaxX()/2.0 - primaryStage.getWidth()/2.0);
 			 primaryStage.setY(primaryScreenBounds.getMaxY()/2.0 - primaryStage.getHeight()/2.0);
 			 
-			 
-		    FXMLLoader loader = new FXMLLoader(getClass().getResource(ScreensInfo.LOGGER_SCREEN));
-	        Scene newScene;
-	        try {
-	            newScene = new Scene(loader.load());
-	        } catch (IOException ex) {
-	            // TODO: handle error
-	            return;
-	        }
-	        Stage inputStage = new Stage();
-	        inputStage.initOwner(primaryStage);
-	        inputStage.setScene(newScene);
-	        inputStage.show();
-	        inputStage.setResizable(false);
-	        //inputStage.setOnCloseRequest(e->e.consume());
 
-	        primaryStage.show();
-			 //screenController.replaceSceneContent(ScreensInfo.LOGGER_SCREEN,ScreensInfo.LOGGER_TITLE);
-
-			 
 			 
 		     } catch (Exception e) {
 				Alert alert = new Alert(AlertType.INFORMATION);

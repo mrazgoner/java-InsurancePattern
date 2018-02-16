@@ -57,10 +57,6 @@ public class ScreensInfo {
 	 */
 	public static final String LOGGER_SCREEN = "/com/gui/LoggerUI.fxml";
 	
-	/**
-	 *  Set logger screen title
-	 */
-	public static final String LOGGER_TITLE = "INSURANCE - LOGGER";
 	
 	/**
 	 *  Set external payment screen title

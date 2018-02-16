@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="617.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ExistingClaimsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="617.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.control.ExistingClaimsController">
    <children>
       <Text layoutX="2.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Existing Claims" textAlignment="CENTER" wrappingWidth="889.0">
          <font>
             <Font size="50.0" />
          </font>
       </Text>
-      <TableView layoutX="18.0" layoutY="115.0" prefHeight="487.0" prefWidth="853.0">
+      <TableView fx:id="claimsTable" layoutX="18.0" layoutY="115.0" prefHeight="412.0" prefWidth="853.0">
         <columns>
-            <TableColumn fx:id="claimNumberol" prefWidth="65.0" text="#" />
+            <TableColumn fx:id="claimNumberCol" prefWidth="65.0" text="#" />
           <TableColumn fx:id="claimTypeCol" prefWidth="95.0" text="Type" />
           <TableColumn fx:id="fNameCol" prefWidth="75.0" text="First Name" />
             <TableColumn fx:id="lNameCol" prefWidth="84.0" text="Last Name" />
@@ -25,5 +25,10 @@
             <TableColumn fx:id="closeClaimCol" prefWidth="86.0" />
         </columns>
       </TableView>
+      <Button fx:id="backButton" layoutX="727.0" layoutY="557.0" mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="46.0" prefWidth="127.0" text="&lt; Back">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

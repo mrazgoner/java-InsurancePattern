@@ -131,41 +131,6 @@ public class SalesController implements ScreensIF {
 			return;
 	}
 	
-	/**
-	 * this method load the page to the content AnchorPane.
-	 * @param screenPath The path of the next screen.
-	 * @throws IOException IO exception.
-	 */
-	@FXML
-	public void loadPage(String screenPath) throws IOException {
-				try {
-					if(content.getChildren().size()>0)
-						content.getChildren().remove(0);
-					Parent root = FXMLLoader.load(getClass().getResource(screenPath));
-					content.getChildren().add(root);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-	}
-	
-	/** Setter for page.
-	 * @param page The page that load in the AnchorPane.
-	 */
-	public static void setPage(String pageToLoad)
-	{
-		page = pageToLoad;
-	}
-	
-	/** Getter for page.
-	 * @return The page that load in the AnchorPane.
-	 */
-	public String getPage()
-	{
-		return page;
-	}
-
-	
-
 	
 	/**
 	 * Handler when pressed "car Insurance". this function applies a car insurance for a chosen customer.

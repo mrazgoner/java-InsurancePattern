@@ -22,6 +22,8 @@ import entity.User;
 */
 import com.enums.ActionType;
 import com.interfaces.ScreensIF;
+import com.control.HomepageController;
+import com.control.ScreenController;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,9 +34,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -44,7 +46,7 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class OpenClaimController implements ScreensIF {
+public class ExistingClaimsController implements ScreensIF {
 
 	/**
 	 * page gets the screen to load in the content pane.
@@ -52,57 +54,60 @@ public class OpenClaimController implements ScreensIF {
 	private static String page = null;
 	
 	/**
-	 * static reference of user home page.
-	 */
-	private static HomepageController userMain;
-
-	
-	/**
 	 * the main content frame
 	 */
 	@FXML private AnchorPane content;
 	
+	/**
+	 * Table of existing claims  
+	 */
+	@FXML public TableView resultsTable;
 	
 	/**
-	 * Button for submitting new customer details.
+	 * Column of claim's id 
 	 */
-	@FXML private Button submitButton;
+	@FXML public TableColumn claimNumberCol;
 	
 	/**
-	 * Button for celaring all fields.
+	 * Column of claim type
 	 */
-	@FXML private Button clearButton;
+	@FXML public TableColumn claimTypeCol;
+	
+	/**
+	 * Column of first name of claim opener
+	 */
+	@FXML public TableColumn fNameCol;
 
+	/**
+	 * Column of last name of claim opener
+	 */
+	@FXML public TableColumn lNameCol;
 	
+	/**
+	 * Column of claim opener
+	 */
+	@FXML public TableColumn claimContentCol;
+	
+	/**
+	 * Column of claim status
+	 */
+	@FXML public TableColumn claimStatusCol;
+	
+	/**
+	 * Column of closing claim
+	 */
+	@FXML public TableColumn closeClaimCol;
+	
+	/**
+	 * static reference of user home page.
+	 */
+	private static HomepageController userMain;
+
 	/**
 	 * back Button for last page.
 	 */
 	@FXML private Button backButton;
 	
-	/**
-	 * ComboBox to choose a Customer.
-	 */
-	@FXML private ComboBox chooseCustomerChoiceBox;
-	
-	/**
-	 * Text of claim type.
-	 */
-	@FXML private Text claimTypeTitle;
-	
-	/**
-	 * ComboBox to choose claim type.
-	 */
-	@FXML private ComboBox claimTypeChoiceBox;
-	
-	/**
-	 * TextArea for claim content.
-	 */
-	@FXML private TextArea claimContentTextArea;
-
-	/**
-	 * Text of claim content.
-	 */
-	@FXML private Text claimContentTitle;
 
 	/*
 	 * (non-Javadoc)
@@ -149,37 +154,8 @@ public class OpenClaimController implements ScreensIF {
 		if (type == ActionType.CONTINUE)
 			return;
 	}
-
 	
-	/**
-	 * Handler when customer was chosen. this function shows other fields on page.
-	 * @param event Gets the ActionEvent when the function called.
-	 * @throws IOException IO exception.
-	 */
-	@FXML
-	public void customerChosen(ActionEvent event) throws IOException {
 
-	}
-	
-	/**
-	 * Handler when pressed "submit". this function submits new customer info to DB.
-	 * @param event Gets the ActionEvent when the function called.
-	 * @throws IOException IO exception.
-	 */
-	@FXML
-	public void submitButtonPressed(ActionEvent event) throws IOException {
-
-	}
-	
-	/**
-	 * Handler when pressed "clear". this function clears all fields.
-	 * @param event Gets the ActionEvent when the function called.
-	 * @throws IOException IO exception.
-	 */
-	@FXML
-	public void clearButtonPressed(ActionEvent event) throws IOException {
-
-	}
 	
 	/** When pressed, takes user back to customer service page.
 	 * @author itain
@@ -196,6 +172,7 @@ public class OpenClaimController implements ScreensIF {
 			e.printStackTrace();
 		}	
 	}
+	
 
 
 	@Override

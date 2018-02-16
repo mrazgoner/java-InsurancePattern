@@ -2,3 +2,17 @@ Thu Feb 15 16:30:42 IST 2018
 Thu Feb 15 16:31:01 IST 2018
 Thu Feb 15 18:45:35 IST 2018
 Thu Feb 15 19:25:20 IST 2018
+Fri Feb 16 00:09:35 IST 2018
+Fri Feb 16 00:20:45 IST 2018
+Fri Feb 16 00:22:08 IST 2018
+Fri Feb 16 00:32:29 IST 2018
+Fri Feb 16 00:47:02 IST 2018
+Fri Feb 16 00:47:39 IST 2018
+Fri Feb 16 00:47:49 IST 2018
+Fri Feb 16 00:50:55 IST 2018
+Fri Feb 16 00:51:21 IST 2018
+Fri Feb 16 01:48:32 IST 2018
+saving settings:
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Settings><LoggerPath>logger.txt</LoggerPath><Host>localhost</Host><BaseName>insurance</BaseName><User>root</User><Password>Braude</Password></Settings>Fri Feb 16 01:56:44 IST 2018
+SQL connection is sucessfull
+Fri Feb 16 02:00:19 IST 2018

@@ -16,6 +16,14 @@ public class SettingsDataAccess {
 	
 	public String getLoggerPath() { return settings.get(0).getValue(); }
 	public void setLoggerPath(String path) { settings.get(0).setValue(path); }
+	public String getHost() { return settings.get(1).getValue(); }
+	public void setHost(String path) { settings.get(1).setValue(path); }
+	public String getBaseName() { return settings.get(2).getValue(); }
+	public void setBaseName(String path) { settings.get(2).setValue(path); }
+	public String getUser() { return settings.get(3).getValue(); }
+	public void setUser(String path) { settings.get(3).setValue(path); }
+	public String getPassword() { return settings.get(4).getValue(); }
+	public void setPassword(String path) { settings.get(4).setValue(path); }
 	
 	/**
 	 * Tries to read from given file, 
@@ -77,10 +85,16 @@ public class SettingsDataAccess {
 	private void set_defaults() {
 		settings = new ArrayList<Setting>();
 		settings.add(new Setting("LoggerPath","logger.txt"));
-		settings.add(new Setting("field2","default2"));
+		settings.add(new Setting("Host","localhost"));
+		settings.add(new Setting("BaseName","insurance"));
+		settings.add(new Setting("User","root"));
+		settings.add(new Setting("Password","Braude"));
 		
 	}
 
+	public void updateDocument() {
+		xmlDocument.UpdateDocument(settings);
+	}
 	
 	
 }

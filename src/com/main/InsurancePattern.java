@@ -23,7 +23,13 @@ public class InsurancePattern {
 		logger = new Logger(settings.getLoggerPath());
 		outStream.addObserver(logger);
 		
-		//DatabaseConnnector.initialize(Host, BaseName, User, Password);
+		
+		DatabaseConnnector.initialize(
+				settings.getHost(),
+				settings.getBaseName(), 
+				settings.getUser(), 
+				settings.getPassword());
+		
 		
 		System.out.println(new Date());
 		

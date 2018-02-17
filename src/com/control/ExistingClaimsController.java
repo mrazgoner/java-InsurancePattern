@@ -3,6 +3,7 @@ package com.control;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,16 +14,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 import com.entity.Claim;
+import com.entity.GeneralMessages;
 import com.entity.ScreensInfo;
-/*
-import entity.Author;
-import entity.Book;
-import entity.GeneralMessages;
-import entity.Login;
-import entity.Message;
-import entity.ScreensInfo;
-import entity.User;
-*/
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 import com.enums.ActionType;
 import com.interfaces.ScreensIF;
 import com.control.HomepageController;
@@ -201,7 +196,16 @@ public class ExistingClaimsController implements ScreensIF {
 		                        	if(claim.getStatus().equals("Open"))
 		                        	{
 			                            btn.setOnAction(event -> {
-			                            	///
+			                            	
+			                            	try {
+												DatabaseController.updateDatabase("UPDATE client_claim SET status='" + 0 + "' WHERE customersId=" + claim.getCustomersId());
+												actionToDisplay(ActionType.CONTINUE,GeneralMessages.OPERATION_SUCCEEDED);
+												initialize();
+												return;
+			                            	} catch (Exception e) {
+												// TODO Auto-generated catch block
+												e.printStackTrace();
+											}
 			                                
 
 			                                        

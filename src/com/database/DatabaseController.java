@@ -13,7 +13,6 @@ import com.enums.ActionType;
 /**
  * This class include the methods for SQL queries. the class also include the connection
  * into the constructor.
- * @author nire
  *
  */
 public class DatabaseController {

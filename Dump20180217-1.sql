@@ -42,7 +42,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (1,'Tomer','Cohen','1987-03-01','Hanasi 28, Haifa','0528563221','tomerc@gmail.com','305332147'),(2,'yosi','yosi','2018-02-02','jojo 56, tel aviv','0523652214','yosi@gmail.com','123456789'),(3,'ofir','ofir','2018-02-06','hahotrim 23, hadera','0532141222','ofir@gmail.com','123645213'),(4,'ofra','hako','2011-02-04','td 23, rishon','05231452','ofra@mail.com','123'),(5,'roni','mana','2018-02-01','gdsfds 21, haifa','0523479101','fdsfds@mail','123145654'),(6,'ron','ben','2018-02-06','jodas 12, karmiel','0521342133','dsa@mail.com','123012445');
+INSERT INTO `client` VALUES (1,'Tomer','Cohen','1987-03-01','Hanasi 28, Haifa','0528563221','tomerc@gmail.com','305332147'),(2,'yosi','yosi','2018-02-02','jojo 56, tel aviv','0523652214','yosi@gmail.com','123456789'),(3,'ofir','ofir','2018-02-06','hahotrim 23, hadera','0532141222','ofir@gmail.com','123645213'),(5,'roni','mana','2018-02-01','gdsfds 21, haifa','0523479101','fdsfds@mail','123145654'),(6,'ron','ben','2018-02-06','jodas 12, karmiel','0521342133','dsa@mail.com','123012445');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,8 +58,9 @@ CREATE TABLE `client_claim` (
   `customersId` varchar(45) DEFAULT NULL,
   `insuranceType` varchar(45) DEFAULT NULL,
   `content` varchar(5000) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +69,7 @@ CREATE TABLE `client_claim` (
 
 LOCK TABLES `client_claim` WRITE;
 /*!40000 ALTER TABLE `client_claim` DISABLE KEYS */;
-INSERT INTO `client_claim` VALUES (1,'305332147','Car Insurance','yesterday i had an accident.');
+INSERT INTO `client_claim` VALUES (1,'305332147','Car Insurance','yesterday i had an accident.',1),(2,'123645213','House Insurance','someone broke into my house today!',0),(3,'305332147','Life Insurance','i had a heart attack 2 days ago.',0);
 /*!40000 ALTER TABLE `client_claim` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-17 17:16:38
+-- Dump completed on 2018-02-17 23:19:28

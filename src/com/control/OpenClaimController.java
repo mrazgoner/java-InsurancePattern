@@ -1,6 +1,8 @@
 package com.control;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.database.DatabaseController;
+import com.entity.Customer;
+import com.entity.GeneralMessages;
 import com.entity.ScreensInfo;
 /*
 import entity.Author;
@@ -23,6 +28,9 @@ import entity.User;
 import com.enums.ActionType;
 import com.interfaces.ScreensIF;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,6 +51,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 public class OpenClaimController implements ScreensIF {
 
@@ -104,6 +113,81 @@ public class OpenClaimController implements ScreensIF {
 	 */
 	@FXML private Text claimContentTitle;
 
+	
+	/** initialization of page
+	 */
+	@FXML
+	public void initialize()
+	{
+		ArrayList<Customer> customersList = new ArrayList<Customer>();
+		customersList = DatabaseController.getCustomers();
+		chooseCustomerChoiceBox.setItems(FXCollections.observableArrayList(
+				customersList));
+		
+		claimTypeTitle.setVisible(false);
+		claimTypeChoiceBox.setVisible(false);
+		claimContentTextArea.setVisible(false);
+		claimContentTextArea.setWrapText(true);
+		claimContentTitle.setVisible(false);
+		submitButton.setVisible(false);
+		clearButton.setVisible(false);
+		
+		chooseCustomerChoiceBox.setConverter(new StringConverter<Customer>() {
+		    @Override
+		    public String toString(Customer object) {
+		        return object.getfName() + " " + object.getlName() + " (" + object.getCustomersId() +")";
+		    }
+
+		    @Override
+		    public Customer fromString(String string) {
+		        return null;
+		    }
+		});	
+		
+		chooseCustomerChoiceBox.valueProperty().addListener(new ChangeListener<Customer>() {
+	        @Override public void changed(ObservableValue ov, Customer oldVal, Customer newVal) {
+	        	if(newVal!=null)
+	        	{
+	        		  claimTypeChoiceBox.setVisible(true);
+	        		  claimTypeTitle.setVisible(true);
+		              Customer customer = (Customer) chooseCustomerChoiceBox.getValue();
+		              String customersId = customer.getCustomersId();
+		              try {
+						ResultSet res=DatabaseController.searchInDatabase("SELECT insuranceType FROM client_insurance WHERE customersId='" + customersId + "'");
+			            ArrayList customerInsurances = new ArrayList<String>();
+						while (res.next()) {
+							customerInsurances.add(res.getString(1));
+						}
+						claimTypeChoiceBox.setItems(FXCollections.observableArrayList(
+								customerInsurances)
+							);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+		              
+	        	}
+
+	          }    
+	      });
+		
+
+		
+		claimTypeChoiceBox.valueProperty().addListener(new ChangeListener<String>() {
+	        @Override public void changed(ObservableValue ov, String oldVal, String newVal) {
+	        	if(newVal!=null)
+	        	{
+	        		claimContentTextArea.setVisible(true);
+	        		claimContentTitle.setVisible(true);
+	        	}
+
+	    		submitButton.setVisible(true);
+	    		clearButton.setVisible(true);
+	          }    
+	      });
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -168,7 +252,29 @@ public class OpenClaimController implements ScreensIF {
 	 */
 	@FXML
 	public void submitButtonPressed(ActionEvent event) throws IOException {
-
+		Boolean res=false;
+		Customer customer =  (Customer) chooseCustomerChoiceBox.getSelectionModel().getSelectedItem();
+		String claimType =  (String) claimTypeChoiceBox.getSelectionModel().getSelectedItem();
+		String content = claimContentTextArea.getText();
+		if(content.equals(""))
+		{
+			actionOnError(ActionType.CONTINUE, GeneralMessages.MUST_FILL_ALL);
+			return;
+		}
+		res=DatabaseController.addNewClientClaim(customer, claimType, content);
+		if(res)
+		{
+			clearButtonPressed(event);
+			submitButton.setVisible(false);
+			clearButton.setVisible(false);
+			actionToDisplay(ActionType.CONTINUE,GeneralMessages.OPERATION_SUCCEEDED);
+			return;
+		}
+		else
+		{
+			actionOnError(ActionType.CONTINUE,GeneralMessages.UNNKNOWN_ERROR);
+			return;
+		}
 	}
 	
 	/**
@@ -178,7 +284,15 @@ public class OpenClaimController implements ScreensIF {
 	 */
 	@FXML
 	public void clearButtonPressed(ActionEvent event) throws IOException {
-
+		submitButton.setVisible(false);
+		clearButton.setVisible(false);
+		claimTypeTitle.setVisible(false);
+		claimTypeChoiceBox.setVisible(false);
+		claimContentTextArea.setText(null);
+		claimContentTextArea.setVisible(false);
+		claimContentTitle.setVisible(false);
+		chooseCustomerChoiceBox.getSelectionModel().clearSelection();
+		claimTypeChoiceBox.getSelectionModel().clearSelection();
 	}
 	
 	/** When pressed, takes user back to customer service page.

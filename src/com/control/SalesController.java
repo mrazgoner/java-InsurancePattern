@@ -15,7 +15,9 @@ import java.sql.SQLException;
 
 import com.database.DatabaseController;
 import com.entity.Customer;
+import com.entity.GeneralMessages;
 import com.entity.ScreensInfo;
+import com.entity.Validate;
 /*
 import entity.Author;
 import entity.Book;
@@ -28,6 +30,8 @@ import entity.User;
 import com.enums.ActionType;
 import com.interfaces.ScreensIF;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -67,40 +71,64 @@ public class SalesController implements ScreensIF {
 	@FXML private Text typeInsuranceTitle;
 	
 	/**
-	 * Button for car insurance.
+	 * text of house size.
 	 */
-	@FXML private Button carInsuranceButton;
+	@FXML private Text houseSizeTitle;
 	
 	/**
-	 * Button for house insurance.
+	 * text field of house size.
 	 */
-	@FXML private Button houseInsuranceButton;
-
-	/**
-	 * Button for life insurance.
-	 */
-	@FXML private Button lifeInsuranceButton;
+	@FXML private TextField houseSizeTextField;
 	
 	/**
-	 * Button for loss of Working capacity Insurance.
+	 * text of car year.
 	 */
-	@FXML private Button lossWorkingInsuranceButton;
+	@FXML private Text carYearTitle;
+	
+	/**
+	 * text field of car year.
+	 */
+	@FXML private TextField carYearTextField;
+	
+	/**
+	 * Button for submitting sale info.
+	 */
+	@FXML private Button submitButton;
+	
+	/**
+	 * Button for celaring all fields.
+	 */
+	@FXML private Button clearButton;
 	
 	/**
 	 * ComboBox for selecting a customer.
 	 */
 	@FXML private ComboBox chooseCustomerChoiceBox;
 	
+	/**
+	 * ComboBox for selecting insurance type.
+	 */
+	@FXML private ComboBox insuranceTypeChoiceBox;
+	
 
-	/** initialize customers when page comes up
+	/** initialization of page
 	 */
 	@FXML
 	public void initialize()
 	{
 		ArrayList<Customer> customersList = new ArrayList<Customer>();
-		customersList = DatabaseController.getCustomersChoiceBox();
+		customersList = DatabaseController.getCustomers();
 		chooseCustomerChoiceBox.setItems(FXCollections.observableArrayList(
 				customersList));
+		
+		insuranceTypeChoiceBox.setVisible(false);
+		typeInsuranceTitle.setVisible(false);
+		carYearTitle.setVisible(false);
+		carYearTextField.setVisible(false);
+		houseSizeTitle.setVisible(false);
+		houseSizeTextField.setVisible(false);
+		submitButton.setVisible(false);
+		clearButton.setVisible(false);
 		
 		chooseCustomerChoiceBox.setConverter(new StringConverter<Customer>() {
 		    @Override
@@ -112,7 +140,78 @@ public class SalesController implements ScreensIF {
 		    public Customer fromString(String string) {
 		        return null;
 		    }
-		});		
+		});	
+		
+		chooseCustomerChoiceBox.valueProperty().addListener(new ChangeListener<Customer>() {
+	        @Override public void changed(ObservableValue ov, Customer oldVal, Customer newVal) {
+	        	if(newVal!=null)
+	        	{
+		              insuranceTypeChoiceBox.setVisible(true);
+		              typeInsuranceTitle.setVisible(true);
+		              Customer customer = (Customer) chooseCustomerChoiceBox.getValue();
+		              String customersId = customer.getCustomersId();
+		              try {
+						ResultSet res=DatabaseController.searchInDatabase("SELECT insuranceType FROM client_insurance WHERE customersId='" + customersId + "'");
+			            ArrayList customerInsurances = new ArrayList<String>();
+			            ArrayList availableInsurances = new ArrayList<String>();
+						while (res.next()) {
+							customerInsurances.add(res.getString(1));
+						}
+						if(!customerInsurances.contains("Car Insurance"))
+							availableInsurances.add("Car Insurance");
+						if(!customerInsurances.contains("House Insurance"))
+							availableInsurances.add("House Insurance");
+						if(!customerInsurances.contains("Life Insurance"))
+							availableInsurances.add("Life Insurance");
+						if(!customerInsurances.contains("Loss of Working Capacity Insurance"))
+							availableInsurances.add("Loss of Working Capacity Insurance");
+						insuranceTypeChoiceBox.setItems(FXCollections.observableArrayList(
+								availableInsurances)
+							);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+		              
+	        	}
+
+	          }    
+	      });
+		
+
+		
+		insuranceTypeChoiceBox.valueProperty().addListener(new ChangeListener<String>() {
+	        @Override public void changed(ObservableValue ov, String oldVal, String newVal) {
+	        	if(newVal!=null)
+	        	{
+		        	if(newVal.equals("Car Insurance"))
+		        	{
+		        		houseSizeTitle.setVisible(false);
+		        		houseSizeTextField.setVisible(false);
+		        		carYearTitle.setVisible(true);
+		        		carYearTextField.setVisible(true);
+		        	}
+		        	else if(newVal.equals("House Insurance"))
+		        	{
+		        		houseSizeTitle.setVisible(true);
+		        		houseSizeTextField.setVisible(true);
+		        		carYearTitle.setVisible(false);
+		        		carYearTextField.setVisible(false);
+		        	}
+		        	else
+		        	{
+		        		houseSizeTitle.setVisible(false);
+		        		houseSizeTextField.setVisible(false);
+		        		carYearTitle.setVisible(false);
+		        		carYearTextField.setVisible(false);
+		        	}
+	        	}
+
+	    		submitButton.setVisible(true);
+	    		clearButton.setVisible(true);
+	          }    
+	      });
 	}
 	
 	
@@ -162,59 +261,87 @@ public class SalesController implements ScreensIF {
 			return;
 	}
 	
+	
+	/**
+	 * Handler when pressed "submit". this function submits new customer info to DB.
+	 * @param event Gets the ActionEvent when the function called.
+	 * @throws IOException IO exception.
+	 */
+	@FXML
+	public void submitButtonPressed(ActionEvent event) throws IOException {
+		Boolean res=false;
+		Customer customer =  (Customer) chooseCustomerChoiceBox.getSelectionModel().getSelectedItem();
+		String insuranceType =  (String) insuranceTypeChoiceBox.getSelectionModel().getSelectedItem();
+		String info;
+		
+		if(insuranceType.equals("Car Insurance"))
+		{
+			info = carYearTextField.getText().trim();
+			if(info.equals(""))
+			{
+				actionOnError(ActionType.CONTINUE, GeneralMessages.MUST_FILL_ALL);
+				return;
+			}
+			if(Validate.carYearValidate(info)==false)
+			{
+				actionOnError(ActionType.CONTINUE, GeneralMessages.INVALID_CAR_YEAR);
+				return;
+			}
+		}
+			
+		else if(insuranceType.equals("House Insurance"))
+		{
+			info = houseSizeTextField.getText().trim();
+			if(info.equals(""))
+			{
+				actionOnError(ActionType.CONTINUE, GeneralMessages.MUST_FILL_ALL);
+				return;
+			}
+			if(Validate.houseSizeValidate(info)==false)
+			{
+				actionOnError(ActionType.CONTINUE, GeneralMessages.INVALID_HOUSE_SIZE);
+				return;
+			}
+		}
+			
+		else
+			info=customer.getBirthDate();
 
-	
-	
-	/**
-	 * Handler when pressed "car Insurance". this function applies a car insurance for a chosen customer.
-	 * @param event Gets the ActionEvent when the function called.
-	 * @throws IOException IO exception.
-	 */
-	@FXML
-	public void carInsuranceButtonPressed(ActionEvent event) throws IOException {
-		
+		res=DatabaseController.addNewClientInsurance(customer, insuranceType, info);
+		if(res)
+		{
+			clearButtonPressed(event);
+			submitButton.setVisible(false);
+			clearButton.setVisible(false);
+			actionToDisplay(ActionType.CONTINUE,GeneralMessages.OPERATION_SUCCEEDED);
+			return;
+		}
+		else
+		{
+			actionOnError(ActionType.CONTINUE,GeneralMessages.UNNKNOWN_ERROR);
+			return;
+		}
 	}
 	
 	/**
-	 * Handler when pressed "house Insurance". this function applies a house insurance for a chosen customer.
+	 * Handler when pressed "clear". this function clears all fields.
 	 * @param event Gets the ActionEvent when the function called.
 	 * @throws IOException IO exception.
 	 */
 	@FXML
-	public void houseInsuranceButtonPressed(ActionEvent event) throws IOException {
-		
-	}
-	
-	/**
-	 * Handler when pressed "life Insurance". this function applies a life insurance for a chosen customer.
-	 * @param event Gets the ActionEvent when the function called.
-	 * @throws IOException IO exception.
-	 */
-	@FXML
-	public void lifeInsuranceButtonPressed(ActionEvent event) throws IOException {
-		
-	}
-	
-	/**
-	 * Handler when pressed "loss of Working capacity Insurance". 
-	 * this function applies a loss of Working capacity Insurance for a chosen customer.
-	 * @param event Gets the ActionEvent when the function called.
-	 * @throws IOException IO exception.
-	 */
-	@FXML
-	public void lossWorkingInsuranceButtonPressed(ActionEvent event) throws IOException {
-		
-	}
-	
-	/**
-	 * Handler when a customer was chosen from the chice box.
-	 * this function shows insurance types after a customer was chosen.
-	 * @param event Gets the ActionEvent when the function called.
-	 * @throws IOException IO exception.
-	 */
-	@FXML
-	public void CustomerChosen(ActionEvent event) throws IOException {
-		
+	public void clearButtonPressed(ActionEvent event) throws IOException {
+		insuranceTypeChoiceBox.setVisible(false);
+		typeInsuranceTitle.setVisible(false);
+		carYearTitle.setVisible(false);
+		carYearTextField.setVisible(false);
+		houseSizeTitle.setVisible(false);
+		houseSizeTextField.setVisible(false);
+		submitButton.setVisible(false);
+		clearButton.setVisible(false);
+		carYearTextField.setText("");
+		houseSizeTextField.setText("");
+		chooseCustomerChoiceBox.getSelectionModel().clearSelection();
+		insuranceTypeChoiceBox.getSelectionModel().clearSelection();
 	}
 
 	@Override

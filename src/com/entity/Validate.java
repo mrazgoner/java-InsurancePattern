@@ -7,6 +7,31 @@ import java.util.regex.Pattern;
 
  */
 public class Validate {
+	
+	/** 
+	 * This static function validates car year 1940-20XX
+	 * @param text Gets string
+	 * @return true when the string is valid, else false.
+	 */
+	public static boolean carYearValidate(String text) {
+	if (text.matches("^(19|20)[0-9][0-9]")) 
+		return true;
+	
+	return false;
+	}
+	
+	/** 
+	 * This static function validates house size.
+	 * @param text Gets string
+	 * @return true when the string is valid, else false.
+	 */
+	public static boolean houseSizeValidate(String text) {
+	if (text.matches("[1-9]{1}[0-9]+") && (text.length() > 0 && text.length() < 5 )) 
+		return true;
+	
+	return false;
+	}
+	
 
 	/** 
 	 * This static function validates id

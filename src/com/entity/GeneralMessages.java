@@ -75,8 +75,18 @@ public class GeneralMessages {
 	
 	
 	/**
-	 * Messafe for invalid email.
+	 * Message for invalid email.
 	 */
 	public static final String INVALID_EMAIL = "Invalid email format.";
+	
+	/**
+	 * Message for invalid car year.
+	 */
+	public static final String INVALID_CAR_YEAR = "Invalid car year format. Write valid year from 1900.";
+	
+	/**
+	 * Message for invalid house size (square meters).
+	 */
+	public static final String INVALID_HOUSE_SIZE = "Invalid house size. Use positive number, up to 4 digits.";
 	
 }

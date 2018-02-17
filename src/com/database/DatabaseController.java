@@ -102,15 +102,15 @@ public class DatabaseController {
 		return rs;	
 	}
 	
-	public static ArrayList<Customer> getCustomersChoiceBox()
+	public static ArrayList<Customer> getCustomers()
 	{
 		ArrayList<Customer> customersList = new ArrayList<Customer>();
 		ResultSet rs;
 		try {
-			rs = DatabaseController.searchInDatabase("SELECT fName, lName, customersId FROM client");
+			rs = DatabaseController.searchInDatabase("SELECT ID, fName, lName, birthDate, address, phone, email, customersId FROM client");
 			while (rs.next())
 			{
-				Customer custumer = new Customer(rs.getString(1), rs.getString(2), rs.getString(3));
+				Customer custumer = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
 				customersList.add(custumer);
 			}
 		} catch (SQLException e) {
@@ -128,6 +128,40 @@ public class DatabaseController {
 		boolean sqlResult = false;
 		try {
 			DatabaseController.addToDatabase(customer.PrepareAddStatement());
+			sqlResult = true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		return sqlResult;
+		
+	}
+	
+	public static Boolean addNewClientInsurance(Customer customer, String insuranceType, String info)
+	{
+		boolean sqlResult = false;
+		try {
+			DatabaseController.addToDatabase(customer.PrepareAddCliendInsuranceStatement(insuranceType, info));
+			sqlResult = true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		return sqlResult;
+		
+	}
+	
+	public static Boolean addNewClientClaim(Customer customer, String claimType, String content)
+	{
+		boolean sqlResult = false;
+		try {
+			DatabaseController.addToDatabase(customer.PrepareAddCliendClaimStatement(claimType, content));
 			sqlResult = true;
 			
 		} catch (SQLException e) {

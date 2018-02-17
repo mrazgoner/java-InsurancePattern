@@ -1,6 +1,8 @@
 package com.control;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.entity.Claim;
 import com.entity.ScreensInfo;
 /*
 import entity.Author;
@@ -24,7 +27,12 @@ import com.enums.ActionType;
 import com.interfaces.ScreensIF;
 import com.control.HomepageController;
 import com.control.ScreenController;
+import com.database.DatabaseController;
+
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,9 +43,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -45,6 +56,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 public class ExistingClaimsController implements ScreensIF {
 
@@ -61,7 +73,7 @@ public class ExistingClaimsController implements ScreensIF {
 	/**
 	 * Table of existing claims  
 	 */
-	@FXML public TableView resultsTable;
+	@FXML public TableView claimsTable;
 	
 	/**
 	 * Column of claim's id 
@@ -82,6 +94,12 @@ public class ExistingClaimsController implements ScreensIF {
 	 * Column of last name of claim opener
 	 */
 	@FXML public TableColumn lNameCol;
+	
+	/**
+	 * Column of claim opener id
+	 */
+	@FXML public TableColumn customersIdCol;
+	
 	
 	/**
 	 * Column of claim opener
@@ -109,6 +127,113 @@ public class ExistingClaimsController implements ScreensIF {
 	@FXML private Button backButton;
 	
 
+	/** initialization of page
+	 */
+	@FXML
+	public void initialize()
+	{
+		ObservableList<Claim> existingClaims = FXCollections.observableArrayList();
+		try {
+			ResultSet res=DatabaseController.searchInDatabase("SELECT * FROM client_claim");
+			while (res.next()) {
+				String status;
+				if(res.getInt(5)==1)
+					status="Open";
+				else
+					status="Closed";
+				Claim claim = new Claim(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), status);
+				
+				//get first and last name of client
+				ResultSet res2=DatabaseController.searchInDatabase("SELECT fName, lName FROM client WHERE customersId='" + claim.getCustomersId() + "'");
+				while (res2.next()) {
+					claim.setfName(res2.getString(1));
+					claim.setlName(res2.getString(2));	
+				}
+
+				existingClaims.add(claim);
+
+			}
+			claimStatusCol.setSortType(TableColumn.SortType.DESCENDING);
+			
+			claimNumberCol.setCellValueFactory(
+	                new PropertyValueFactory<Claim, Integer>("id"));
+			
+			claimTypeCol.setCellValueFactory(
+	                new PropertyValueFactory<Claim, String>("claimType"));
+			
+			fNameCol.setCellValueFactory(
+	                new PropertyValueFactory<Claim, String>("FName"));
+			
+			lNameCol.setCellValueFactory(
+	                new PropertyValueFactory<Claim, String>("LName"));
+			
+			customersIdCol.setCellValueFactory(
+	                new PropertyValueFactory<Claim, String>("customersId"));	
+			
+			claimContentCol.setCellValueFactory(
+	                new PropertyValueFactory<Claim, String>("content"));
+			
+			claimStatusCol.setCellValueFactory(
+	                new PropertyValueFactory<Claim, String>("status"));
+			
+			claimsTable.setItems(existingClaims);
+			claimsTable.getSortOrder().add(claimStatusCol);
+			
+			closeClaimCol.setCellValueFactory(new PropertyValueFactory<>("closeClaim"));
+
+		        Callback<TableColumn<Claim, String>, TableCell<Claim, String>> cellFactory
+		                = //
+		                new Callback<TableColumn<Claim, String>, TableCell<Claim, String>>() {
+		            @Override
+		            public TableCell call(final TableColumn<Claim, String> param) {
+		                final TableCell<Claim, String> cell = new TableCell<Claim, String>() {
+		                	
+		                	
+		                    final Button btn = new Button("Close");
+		                    @Override
+		                    public void updateItem(String item, boolean empty) {
+		                        super.updateItem(item, empty);
+		                        if (empty) {
+		                            setGraphic(null);
+		                            setText(null);
+		                        } else {
+		                        	Claim claim = getTableView().getItems().get(getIndex());
+		                        	if(claim.getStatus().equals("Open"))
+		                        	{
+			                            btn.setOnAction(event -> {
+			                            	///
+			                                
+
+			                                        
+			                            });
+			                            setGraphic(btn);
+			                            setText(null);
+		                        	}
+		                        	else
+		                        	{
+			                            setGraphic(null);
+			                            setText(null);
+		                        	}
+
+
+		                        }
+		                        
+		                    }
+		                };
+		                return cell;
+		            }
+		        };
+		        closeClaimCol.setCellFactory(cellFactory);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 

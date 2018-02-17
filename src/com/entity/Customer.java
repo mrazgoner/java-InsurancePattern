@@ -62,8 +62,9 @@ public class Customer {
 
 
 	public String PrepareAddCliendClaimStatement(String claimType, String content) {
-		return "INSERT INTO client_claim (`customersId`, `insuranceType`, `content`) "
-				+ "VALUES ('"+this.customersId+"','"+claimType+"','"+content+"')";
+		int status = 1;
+		return "INSERT INTO client_claim (`customersId`, `insuranceType`, `content`, `status`) "
+				+ "VALUES ('"+this.customersId+"','"+claimType+"','"+content+"','"+status+"')";
 	}
 
 }

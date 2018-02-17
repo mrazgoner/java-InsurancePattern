@@ -34,7 +34,8 @@ public class LoggerController implements ScreensIF {
 	/**
 	 * TextArea for logger.
 	 */
-	@FXML private TextArea logField;
+	@FXML
+	public TextArea logField;
 	
 	
 	/*

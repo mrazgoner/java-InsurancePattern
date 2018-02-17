@@ -175,7 +175,7 @@ public class ExternalPaymentController {
 		if (txtCardNum.getText().equals("") || txtMonth.getText().equals("") || txtYear.getText().equals("") ||
 			txtCVV.getText().equals("") || txtName.getText().equals("") || txtID.getText().equals("") || (!rbVisa.isSelected() & !rbMasterCard.isSelected() & !rbAmex.isSelected()) )
 			{
-				actionOnError(ActionType.CONTINUE,GeneralMessages.EMPTY_FIELDS);
+				actionOnError(ActionType.CONTINUE,GeneralMessages.MUST_FILL_ALL);
 				return;
 			}
 		
@@ -208,9 +208,9 @@ public class ExternalPaymentController {
 			return;
 		}
 		
-		if (Validate.usernameValidate(txtID.getText()) == false)
+		if (Validate.idValidate(txtID.getText()) == false)
 		{
-			actionOnError(ActionType.CONTINUE,GeneralMessages.MUST_INCLUDE_ONLY_DIGITS_ID);
+			actionOnError(ActionType.CONTINUE,GeneralMessages.ONLY_DIGITS_9LEN_ID);
 			return;
 		}
 		

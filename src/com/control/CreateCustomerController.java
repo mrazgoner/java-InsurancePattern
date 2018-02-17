@@ -4,13 +4,19 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 //import java.net.URL;
 //import java.util.ResourceBundle;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
+import com.database.DatabaseController;
+import com.entity.Customer;
+import com.entity.GeneralMessages;
 import com.entity.ScreensInfo;
+import com.entity.Validate;
 /*
 import entity.Author;
 import entity.Book;
@@ -157,6 +163,62 @@ public class CreateCustomerController implements ScreensIF {
 	 */
 	@FXML
 	public void submitButtonPressed(ActionEvent event) throws IOException {
+		Boolean res=false;
+		String fName=fNameTextField.getText().trim();
+		String lName=lNameTextField.getText().trim();
+		String customersId=idTextField.getText().trim();
+		String birthDate;
+		LocalDate birthDate2=birthDatePicker.getValue();
+		if(birthDate2==null)
+			birthDate="";
+		else
+			birthDate=birthDatePicker.getValue().toString();
+		String address=addressTextField.getText().trim();
+		String phone=phoneTextField.getText().trim();
+		String email=emailTextField.getText().trim();
+		if(fName.equals("") || lName.equals("") || customersId.equals("")|| birthDate.equals("")
+				|| address.equals("") || phone.equals("") || email.equals(""))
+		{
+			actionOnError(ActionType.CONTINUE, GeneralMessages.MUST_FILL_ALL);
+			return;
+		}
+		else if(Validate.nameValidateCharactersOnly(fName)== false || Validate.nameValidateCharactersOnly(lName)== false)
+		{
+			actionOnError(ActionType.CONTINUE, GeneralMessages.MUST_INCLUDE_ONLY_CHARACTERS);
+			return;
+		}
+		else if(Validate.idValidate(customersId)==false)
+		{
+			actionOnError(ActionType.CONTINUE, GeneralMessages.ONLY_DIGITS_9LEN_ID);
+			return;
+		}
+		else if(Validate.phoneValidate(phone)==false)
+		{
+			actionOnError(ActionType.CONTINUE, GeneralMessages.INVALID_PHONE);
+			return;
+		}
+		else if(Validate.emailValidateString(email)==false)
+		{
+			actionOnError(ActionType.CONTINUE, GeneralMessages.INVALID_EMAIL);
+			return;
+		}
+		else
+		{
+			
+			Customer customer = new Customer(0,fName,lName,birthDate,address,phone,email, customersId);
+			res=DatabaseController.addNewCustomer(customer);
+			if(res)
+			{
+				clearButtonPressed(event);
+				actionToDisplay(ActionType.CONTINUE,GeneralMessages.OPERATION_SUCCEEDED);
+				return;
+			}
+			else
+			{
+				actionOnError(ActionType.CONTINUE,GeneralMessages.UNNKNOWN_ERROR);
+				return;
+			}
+		}
 
 	}
 	
@@ -167,7 +229,14 @@ public class CreateCustomerController implements ScreensIF {
 	 */
 	@FXML
 	public void clearButtonPressed(ActionEvent event) throws IOException {
-
+		fNameTextField.setText("");
+		lNameTextField.setText("");
+		idTextField.setText("");
+		birthDatePicker.setValue(null);
+		addressTextField.setText("");
+		phoneTextField.setText("");
+		emailTextField.setText("");
+		
 	}
 	
 

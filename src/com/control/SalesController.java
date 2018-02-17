@@ -9,7 +9,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import com.database.DatabaseController;
+import com.entity.Customer;
 import com.entity.ScreensInfo;
 /*
 import entity.Author;
@@ -23,6 +28,7 @@ import entity.User;
 import com.enums.ActionType;
 import com.interfaces.ScreensIF;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,6 +47,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 public class SalesController implements ScreensIF {
 
@@ -85,6 +92,30 @@ public class SalesController implements ScreensIF {
 	@FXML private ComboBox chooseCustomerChoiceBox;
 	
 
+	/** initialize customers when page comes up
+	 */
+	@FXML
+	public void initialize()
+	{
+		ArrayList<Customer> customersList = new ArrayList<Customer>();
+		customersList = DatabaseController.getCustomersChoiceBox();
+		chooseCustomerChoiceBox.setItems(FXCollections.observableArrayList(
+				customersList));
+		
+		chooseCustomerChoiceBox.setConverter(new StringConverter<Customer>() {
+		    @Override
+		    public String toString(Customer object) {
+		        return object.getfName() + " " + object.getlName() + " (" + object.getCustomersId() +")";
+		    }
+
+		    @Override
+		    public Customer fromString(String string) {
+		        return null;
+		    }
+		});		
+	}
+	
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -130,6 +161,8 @@ public class SalesController implements ScreensIF {
 		if (type == ActionType.CONTINUE)
 			return;
 	}
+	
+
 	
 	
 	/**

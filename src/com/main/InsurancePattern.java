@@ -3,7 +3,6 @@ package com.main;
 
 import java.util.Date;
 
-import com.database.DatabaseConnnector;
 import com.gui.ConsoleScreen;
 import com.settings.SettingsDataAccess;
 
@@ -23,7 +22,7 @@ public class InsurancePattern {
 		logger = new Logger(settings.getLoggerPath());
 		outStream.addObserver(logger);
 		
-		
+		/*
 		DatabaseConnnector.initialize(
 				settings.getHost(),
 				settings.getBaseName(), 
@@ -32,7 +31,7 @@ public class InsurancePattern {
 		
 		
 		System.out.println(new Date());
-		
+		*/
 
 	}
 

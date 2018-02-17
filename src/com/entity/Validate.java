@@ -9,15 +9,27 @@ import java.util.regex.Pattern;
 public class Validate {
 
 	/** 
-	 * This static function validate the credit card owner.
+	 * This static function validates id
 	 * @param text Gets string
 	 * @return true when the string contains only numbers, and else false.
 	 */
-	public static boolean usernameValidate(String text) {
+	public static boolean idValidate(String text) {
 	if (text.matches("[0-9]+") && text.length() == 9) 
 		return true;
 	
 	return false;
+	}
+	
+	/** 
+	 * This static function validates phone number
+	 * @param text Gets string
+	 * @return true when a valid phone was inserted, else false.
+	 */
+	public static boolean phoneValidate(String text) {
+		if (text.matches("[0-9]+") && (text.length() == 9 || text.length() == 10)) 
+			return true;
+		
+		return false;
 	}
 	
 	/** 
@@ -29,6 +41,21 @@ public class Validate {
 	if(text.isEmpty())
 		return true;
 	if (text.matches("[A-Za-z\\s]+")) 
+		return true;
+	
+	return false;
+	}
+	
+	/** 
+	 * This static function validates email.
+	 * @param text Gets string
+	 * @return true if valid email was inserted, else false.
+	 */
+	public static boolean emailValidateString (String text) {
+	if(text.isEmpty())
+		return true;
+	if (text.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) 
 		return true;
 	
 	return false;
@@ -69,21 +96,5 @@ public class Validate {
 	return false;
 	}
 	
-	/**
-	 * Get string and add apostrophe beside of every apostrophe in the text to fix
-	 * writing to DB problem.
-	 * @param str The text that have fix.
-	 * @return The text after fixing.
-	 */
-	public static String fixText(String str)
-	{
-		for(int i=0;i<str.length()-1;i++){
-			if(str.charAt(i)=='\'' && str.charAt(i+1)=='\''){
-				str = str.substring(0,i) + "\"" +  str.substring(i+2,str.length());
-			}
-		}
-		str = str.replace("'", "''");
-		return str;
-	}
 	
 }

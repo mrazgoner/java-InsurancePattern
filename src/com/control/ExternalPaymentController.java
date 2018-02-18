@@ -8,11 +8,12 @@ import java.util.concurrent.CountDownLatch;
 
 import javax.imageio.ImageIO;
 
-import com.gui.ClientUI;
 import com.entity.GeneralMessages;
 import com.entity.ScreensInfo;
 import com.entity.Validate;
 import com.enums.ActionType;
+import com.main.InsurancePattern;
+
 import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;

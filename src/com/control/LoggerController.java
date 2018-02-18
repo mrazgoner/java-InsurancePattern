@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.enums.ActionType;
 import com.interfaces.ScreensIF;
+import com.main.PrintObserver;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -19,7 +20,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
-public class LoggerController implements ScreensIF {
+public class LoggerController implements ScreensIF,PrintObserver {
 	
 	/**
 	 * page gets the screen to load in the content pane.
@@ -63,6 +64,13 @@ public class LoggerController implements ScreensIF {
 	@Override
 	public void pressedCloseMenu(ActionEvent event) throws IOException {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void append(String str) {
+		logField.appendText(str);
+		//logField.setCaretPosition(logField.getText().length());
 		
 	}
 }

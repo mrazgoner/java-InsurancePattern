@@ -22,6 +22,8 @@ import entity.User;
 */
 import com.enums.ActionType;
 import com.interfaces.ScreensIF;
+import com.main.InsurancePattern;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -248,7 +250,8 @@ public class HomepageController implements ScreensIF {
 	 */
 	@FXML
 	public void loggerButtonPressed(ActionEvent event) throws IOException {
-		loadPage(ScreensInfo.LOGGER_SCREEN);
+		//loadPage(ScreensInfo.LOGGER_SCREEN);
+		InsurancePattern.console.setVisible(true);
 	}
 	
 	

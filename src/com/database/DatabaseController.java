@@ -15,50 +15,29 @@ import com.enums.ActionType;
  * into the constructor.
  *
  */
-public class DatabaseController {
+public class DatabaseController implements DatabaseProxy{
 
 	
 	/**
 	 * static variable for database connection.
 	 */
+	public static DatabaseConnector connector;
 	public static Connection connection;
 	
-	/**
-	 * Create new instance of driver for SQL connection. if the action failed
-	 * exceptions throw and catch into other class.
-	 * @throws InstantiationException Instantiation Exception.
-	 * @throws IllegalAccessException Illegal Access Exception.
-	 * @throws ClassNotFoundException Class Not Found Exception.
-	 */
-	public DatabaseController() throws InstantiationException,
-	IllegalAccessException,
-	ClassNotFoundException
+
+	public void SetConnection(String Host,String BaseName,String User,String Password)
 	{
-		Class.forName("com.mysql.jdbc.Driver").newInstance();
-	}
-	
-	/**
-	 * Set connection to database, and presave the connection in static variable connection.
-	 * @param username Gets the username
-	 * @param password Gets the database password
-	 * @throws SQLException SQL exceptions.
-	 */
-	public void SetConnection(String username, String password) throws SQLException
-	{
-		connection = DriverManager.getConnection("jdbc:mysql://localhost/insurance",username,password);
+		DatabaseConnector.initialize(Host, BaseName, User, Password);
+		connector = DatabaseConnector.getInstance();
+		connection = connector.getConnection();
 	}
 	
 	/**
 	 * Close the connection from database.
 	 */
-	static void CloseConnection()
+	public void CloseConnection()
 	{
-		try {
-			connection.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		connector.CloseConnection();
 	}
 	
 	/** Perform query to database (add).
@@ -66,6 +45,7 @@ public class DatabaseController {
 	 * @throws SQLException throw exception if there is problem in database.
 	 */
 	public static void addToDatabase(String statement) throws SQLException {
+		
 		Statement stmt=connection.createStatement();
 		stmt.executeUpdate(statement);
 	    stmt.close();	

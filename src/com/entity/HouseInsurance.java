@@ -16,5 +16,13 @@ public class HouseInsurance extends Insurance{
 	public void setInfo(String info) {
 		area = Integer.parseInt(info);
 	}
+	
+	public int getArea() {
+		return area;
+	}
+	
+	public void setArea(int area) {
+		this.area = area;
+	}
 
 }

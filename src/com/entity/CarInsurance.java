@@ -16,5 +16,14 @@ public class CarInsurance extends Insurance{
 	public void setInfo(String info) {
 		year = Integer.parseInt(info);
 	}
+	
+	
+	public int getYear() {
+		return year;
+	}
+	
+	public void setear(int year) {
+		this.year = year;
+	}
 
 }

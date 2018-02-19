@@ -1,32 +1,15 @@
 package com.control;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-//import java.net.URL;
-//import java.util.ResourceBundle;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.database.CustomerDao;
 import com.database.DatabaseController;
 import com.entity.Customer;
 import com.entity.GeneralMessages;
-import com.entity.ScreensInfo;
 import com.entity.Validate;
-/*
-import entity.Author;
-import entity.Book;
-import entity.GeneralMessages;
-import entity.Login;
-import entity.Message;
-import entity.ScreensInfo;
-import entity.User;
-*/
 import com.enums.ActionType;
 import com.interfaces.ScreensIF;
 import javafx.application.Platform;
@@ -35,22 +18,13 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 public class SalesController implements ScreensIF {
@@ -58,6 +32,7 @@ public class SalesController implements ScreensIF {
 	/**
 	 * page gets the screen to load in the content pane.
 	 */
+	@SuppressWarnings("unused")
 	private static String page = null;
 	
 	/**
@@ -103,21 +78,24 @@ public class SalesController implements ScreensIF {
 	/**
 	 * ComboBox for selecting a customer.
 	 */
+	@SuppressWarnings("rawtypes")
 	@FXML private ComboBox chooseCustomerChoiceBox;
 	
 	/**
 	 * ComboBox for selecting insurance type.
 	 */
+	@SuppressWarnings("rawtypes")
 	@FXML private ComboBox insuranceTypeChoiceBox;
 	
 
 	/** initialization of page
 	 */
+	@SuppressWarnings("unchecked")
 	@FXML
 	public void initialize()
 	{
-		ArrayList<Customer> customersList = new ArrayList<Customer>();
-		customersList = DatabaseController.getCustomers();
+		ArrayList<Customer> customersList = 
+				(new CustomerDao()).getAll();
 		chooseCustomerChoiceBox.setItems(FXCollections.observableArrayList(
 				customersList));
 		
@@ -143,7 +121,8 @@ public class SalesController implements ScreensIF {
 		});	
 		
 		chooseCustomerChoiceBox.valueProperty().addListener(new ChangeListener<Customer>() {
-	        @Override public void changed(ObservableValue ov, Customer oldVal, Customer newVal) {
+	        @SuppressWarnings("rawtypes")
+			@Override public void changed(ObservableValue ov, Customer oldVal, Customer newVal) {
 	        	if(newVal!=null)
 	        	{
 		              insuranceTypeChoiceBox.setVisible(true);
@@ -182,7 +161,8 @@ public class SalesController implements ScreensIF {
 
 		
 		insuranceTypeChoiceBox.valueProperty().addListener(new ChangeListener<String>() {
-	        @Override public void changed(ObservableValue ov, String oldVal, String newVal) {
+	        @SuppressWarnings("rawtypes")
+			@Override public void changed(ObservableValue ov, String oldVal, String newVal) {
 	        	if(newVal!=null)
 	        	{
 		        	if(newVal.equals("Car Insurance"))

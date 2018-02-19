@@ -1,59 +1,30 @@
 package com.control;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-//import java.net.URL;
-//import java.util.ResourceBundle;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
-import com.database.DatabaseController;
+import com.database.CustomerDao;
 import com.entity.Customer;
 import com.entity.GeneralMessages;
-import com.entity.ScreensInfo;
 import com.entity.Validate;
-/*
-import entity.Author;
-import entity.Book;
-import entity.GeneralMessages;
-import entity.Login;
-import entity.Message;
-import entity.ScreensInfo;
-import entity.User;
-*/
 import com.enums.ActionType;
 import com.interfaces.ScreensIF;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
 
 public class CreateCustomerController implements ScreensIF {
 
 	/**
 	 * page gets the screen to load in the content pane.
 	 */
+	@SuppressWarnings("unused")
 	private static String page = null;
 	
 	/**
@@ -206,7 +177,8 @@ public class CreateCustomerController implements ScreensIF {
 		{
 			
 			Customer customer = new Customer(0,fName,lName,birthDate,address,phone,email, customersId);
-			res=DatabaseController.addNewCustomer(customer);
+			CustomerDao dao = new CustomerDao();
+			res= dao.updateInDatabase(customer);
 			if(res)
 			{
 				clearButtonPressed(event);

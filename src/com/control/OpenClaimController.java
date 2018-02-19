@@ -116,6 +116,7 @@ public class OpenClaimController implements ScreensIF {
 	
 	/** initialization of page
 	 */
+	@SuppressWarnings("unchecked")
 	@FXML
 	public void initialize()
 	{

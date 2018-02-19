@@ -1,10 +1,9 @@
 package com.entity;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-public class Customer {
+public class Customer implements Entity{
+	
+	@SuppressWarnings("unused")
 	private int id;
 	private String fName;
 	private String lName;
@@ -66,5 +65,6 @@ public class Customer {
 		return "INSERT INTO client_claim (`customersId`, `insuranceType`, `content`, `status`) "
 				+ "VALUES ('"+this.customersId+"','"+claimType+"','"+content+"','"+status+"')";
 	}
+
 
 }

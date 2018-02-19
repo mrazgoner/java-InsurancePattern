@@ -4,22 +4,11 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-//import java.net.URL;
-//import java.util.ResourceBundle;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 import com.entity.ScreensInfo;
-/*
-import entity.Author;
-import entity.Book;
-import entity.GeneralMessages;
-import entity.Login;
-import entity.Message;
-import entity.ScreensInfo;
-import entity.User;
-*/
 import com.enums.ActionType;
 import com.interfaces.ScreensIF;
 import com.control.HomepageController;
@@ -44,11 +33,13 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+@SuppressWarnings("unused")
 public class CustomerServiceController implements ScreensIF {
 
 	/**
 	 * page gets the screen to load in the content pane.
 	 */
+	@SuppressWarnings("unused")
 	private static String page = null;
 	
 	/**
@@ -70,6 +61,7 @@ public class CustomerServiceController implements ScreensIF {
 	/**
 	 * static reference of user home page.
 	 */
+	@SuppressWarnings("unused")
 	private static HomepageController userMain;
 
 	
@@ -130,12 +122,12 @@ public class CustomerServiceController implements ScreensIF {
 	@FXML
 	public void newClaimButtonPressed(ActionEvent event) throws IOException {
 		userMain = new HomepageController();
-		userMain.setPage(ScreensInfo.OPEN_CLAIM_SCREEN);
+		HomepageController.setPage(ScreensInfo.OPEN_CLAIM_SCREEN);
 		ScreenController screenController = new ScreenController();
 		try {
 			screenController.replaceSceneContent(ScreensInfo.HOMEPAGE_SCREEN,ScreensInfo.HOMEPAGE_TITLE);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			System.out.println("failed to load screen");
 			e.printStackTrace();
 		}	
 	}
@@ -148,12 +140,12 @@ public class CustomerServiceController implements ScreensIF {
 	@FXML
 	public void existingClaimsButtonPressed(ActionEvent event) throws IOException {
 		userMain = new HomepageController();
-		userMain.setPage(ScreensInfo.EXISTING_CLAIMS_SCREEN);
+		HomepageController.setPage(ScreensInfo.EXISTING_CLAIMS_SCREEN);
 		ScreenController screenController = new ScreenController();
 		try {
 			screenController.replaceSceneContent(ScreensInfo.HOMEPAGE_SCREEN,ScreensInfo.HOMEPAGE_TITLE);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			System.out.println("failed to load screen");
 			e.printStackTrace();
 		}	
 	}
@@ -162,7 +154,7 @@ public class CustomerServiceController implements ScreensIF {
 
 	@Override
 	public void pressedCloseMenu(ActionEvent event) throws IOException {
-		// TODO Auto-generated method stub
+		 
 		
 	}
 	

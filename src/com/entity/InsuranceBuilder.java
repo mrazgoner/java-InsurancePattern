@@ -15,6 +15,9 @@ public class InsuranceBuilder {
 	
 	private InsuranceDirector director;
 	
+	public void setDirector(InsuranceDirector director) {
+		this.director = director;
+	}
 	
 	public Insurance BuildInsurance(Customer client, String info) {
 		newInsurance = null;

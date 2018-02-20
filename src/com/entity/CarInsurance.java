@@ -22,7 +22,7 @@ public class CarInsurance extends Insurance{
 		return year;
 	}
 	
-	public void setear(int year) {
+	public void setyear(int year) {
 		this.year = year;
 	}
 

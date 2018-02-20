@@ -35,7 +35,6 @@ public class InsuranceBuilder {
 	private void buildType(String info) {
 		
 		this.newInsurance = director.buildInstance();
-		director.initType(newInsurance);
 		director.initInfo(newInsurance,info);
 		
 	}

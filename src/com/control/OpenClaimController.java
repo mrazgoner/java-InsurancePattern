@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.database.CustomerDao;
 import com.database.DatabaseController;
 import com.entity.Customer;
 import com.entity.GeneralMessages;
@@ -121,7 +122,8 @@ public class OpenClaimController implements ScreensIF {
 	public void initialize()
 	{
 		ArrayList<Customer> customersList = new ArrayList<Customer>();
-		customersList = DatabaseController.getCustomers();
+		CustomerDao customerAcess = new CustomerDao();
+		customersList = customerAcess.getAll();
 		chooseCustomerChoiceBox.setItems(FXCollections.observableArrayList(
 				customersList));
 		

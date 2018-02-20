@@ -8,7 +8,6 @@ public interface EntityDao<T extends Entity> {
 	
 	public boolean updateInDatabase(T obj);
 	
-	public ArrayList<T> getAll() ;
-
+	public ArrayList<T> getAll();
 
 }

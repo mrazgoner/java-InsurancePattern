@@ -3,23 +3,36 @@ package com.entity;
 public abstract class Insurance implements Entity{
 	
 	protected int clientID;
+	protected Customer client;
 	protected int insuranceID;
 	
 	protected String type;
 	
-	int getClientID() {
+	public Customer getClient() {
+		return client;
+	}
+	
+	public void SetClient(Customer client) {
+		 this.client = client;
+	}
+	
+	public String getType() {
+		return this.type;
+	}
+	
+	public int getClientID() {
 		return this.clientID;
 	}
 	
-	int getinsuranceID() {
+	public int getinsuranceID() {
 		return this.insuranceID;
 	}
 	
-	void setClientID(int id) {
+	public void setClientID(int id) {
 		this.clientID = id;
 	}
 	
-	void setinsuranceID(int id) {
+	public void setinsuranceID(int id) {
 		this.insuranceID = id;
 	}
 	

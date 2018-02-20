@@ -129,7 +129,7 @@ public class SalesController implements ScreensIF {
 		              typeInsuranceTitle.setVisible(true);
 		              Customer customer = (Customer) chooseCustomerChoiceBox.getValue();
 		              String customersId = customer.getCustomersId();
-		              try {
+		              try {		 
 						ResultSet res=DatabaseController.searchInDatabase("SELECT insuranceType FROM client_insurance WHERE customersId='" + customersId + "'");
 			            ArrayList customerInsurances = new ArrayList<String>();
 			            ArrayList availableInsurances = new ArrayList<String>();

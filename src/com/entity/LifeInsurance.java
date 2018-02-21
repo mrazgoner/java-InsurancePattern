@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class LifeInsurance extends Insurance{
+public class LifeInsurance extends Insurance implements CalculateCostVisitable{
 
 	private String ClientBirthDate; 
 	
@@ -30,6 +30,10 @@ public class LifeInsurance extends Insurance{
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public double calculateCost(CalculateCostVisitor obj) {
+		return obj.calculateCost(this);
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.entity;
 
-public class HouseInsurance extends Insurance{
+public class HouseInsurance extends Insurance implements CalculateCostVisitable{
 
 	private int area; 
 	
@@ -23,6 +23,11 @@ public class HouseInsurance extends Insurance{
 	
 	public void setArea(int area) {
 		this.area = area;
+	}
+
+	@Override
+	public double calculateCost(CalculateCostVisitor obj) {
+		return obj.calculateCost(this);
 	}
 
 }

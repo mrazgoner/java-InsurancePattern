@@ -1,6 +1,6 @@
 package com.entity;
 
-public class CarInsurance extends Insurance{
+public class CarInsurance extends Insurance implements CalculateCostVisitable{
 
 	private int year; 
 	
@@ -24,6 +24,10 @@ public class CarInsurance extends Insurance{
 	
 	public void setyear(int year) {
 		this.year = year;
+	}
+	
+	public double calculateCost(CalculateCostVisitor obj) {
+		return obj.calculateCost(this);
 	}
 
 }

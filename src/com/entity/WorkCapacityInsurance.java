@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class WorkCapacityInsurance extends Insurance{
+public class WorkCapacityInsurance extends Insurance implements CalculateCostVisitable{
 
 	private String ClientBirthDate; 
 	
@@ -29,6 +29,10 @@ public class WorkCapacityInsurance extends Insurance{
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public double calculateCost(CalculateCostVisitor obj) {
+		return obj.calculateCost(this);
 	}
 
 }

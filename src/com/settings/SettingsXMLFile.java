@@ -23,7 +23,7 @@ import org.w3c.dom.NodeList;
  * @author Michael
  *
  */
-public class SettingsXMLFile {
+public class SettingsXMLFile implements SettingsFileProxy{
 
 	private File file; 
 
@@ -47,7 +47,7 @@ public class SettingsXMLFile {
 	 * 
 	 * @param fields
 	 */
-	public void UpdateDocument(ArrayList<Setting> fields)
+	public void updateDocument(ArrayList<Setting> fields)
 	{
 
 		try {
@@ -122,6 +122,7 @@ public class SettingsXMLFile {
 		}
 
 	}// parseDocument
+
 
 
 }	

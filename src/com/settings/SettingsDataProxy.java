@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * data access object for settings stored in the XML file
  * 
  */
-public class SettingsDataAccess {
+public class SettingsDataProxy implements SettingsFileProxy{
 	
 	private SettingsXMLFile xmlDocument;
 	private ArrayList<Setting> settings;
@@ -31,7 +31,7 @@ public class SettingsDataAccess {
 	 * 
 	 * @param path
 	 */
-	public SettingsDataAccess(String path)
+	public SettingsDataProxy(String path)
 	{
 		xmlDocument = new SettingsXMLFile(path);
 		set_defaults();
@@ -51,12 +51,12 @@ public class SettingsDataAccess {
 				 * if the XML is invalid
 				 */
 				set_defaults();
-				xmlDocument.UpdateDocument(settings);
+				xmlDocument.updateDocument(settings);
 			}
 		}
 		else
 		{
-			xmlDocument.UpdateDocument(settings);	
+			xmlDocument.updateDocument(settings);	
 		}
 				
 		System.out.println("Settings are:");
@@ -92,8 +92,13 @@ public class SettingsDataAccess {
 		
 	}
 
+	public void updateDocument(ArrayList<Setting> settings) {
+		this.settings = settings;
+		xmlDocument.updateDocument(settings);
+	}
+	
 	public void updateDocument() {
-		xmlDocument.UpdateDocument(settings);
+		xmlDocument.updateDocument(settings);
 	}
 	
 	

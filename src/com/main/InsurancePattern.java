@@ -10,7 +10,7 @@ import com.database.DatabaseController;
 import com.entity.GeneralMessages;
 import com.entity.ScreensInfo;
 import com.gui.ConsoleScreen;
-import com.settings.SettingsDataAccess;
+import com.settings.SettingsDataProxy;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +27,7 @@ public class InsurancePattern extends Application {
 
 	static Logger logger;
 	static OutStreamPrinter outStream;
-	static SettingsDataAccess settings;
+	static SettingsDataProxy settings;
 	public static ConsoleScreen console;
 
 	public static void main(String args[]) {
@@ -41,7 +41,7 @@ public class InsurancePattern extends Application {
 			
 			setupOutput();
 		
-			settings = new SettingsDataAccess("settings.xml");
+			settings = new SettingsDataProxy("settings.xml");
 			logger = new Logger(settings.getLoggerPath());
 			outStream.addObserver(logger);
 

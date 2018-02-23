@@ -183,14 +183,17 @@ public class CreateCustomerController implements ScreensIF {
 			if(res)
 			{
 				clearButtonPressed(event);
+				System.out.println("New customer was created: Full Name="
+						+ customer.getfName() + " " 
+						+ customer.getlName() +" , ID="
+						+ customer.getCustomersId());
 				actionToDisplay(ActionType.CONTINUE,GeneralMessages.OPERATION_SUCCEEDED);
-				System.out.println("Customer Created");
 				return;
 			}
 			else
 			{
-				actionOnError(ActionType.CONTINUE,GeneralMessages.UNNKNOWN_ERROR);
 				System.out.println("Failed Creating Customer");
+				actionOnError(ActionType.CONTINUE,GeneralMessages.UNNKNOWN_ERROR);
 				return;
 			}
 		}

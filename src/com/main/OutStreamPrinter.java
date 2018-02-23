@@ -28,11 +28,11 @@ public class OutStreamPrinter extends OutputStream {
 
 	@Override
 	public void write(int b) throws IOException {
-		
-		NotifyWrite(String.valueOf((char)b));
-		
 		if(b == (int)'\n')
-			NotifyWrite((new Date()).toString() + " : ");
+			NotifyWrite(" [" + (new Date()).toString() + "]");
+		NotifyWrite(String.valueOf((char)b));
+
+
 		
 	}
 

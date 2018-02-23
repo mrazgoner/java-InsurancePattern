@@ -89,4 +89,9 @@ public class GeneralMessages {
 	 */
 	public static final String INVALID_HOUSE_SIZE = "Invalid house size. Use positive number, up to 4 digits.";
 	
+	/**
+	 * Message for no connection to Database
+	 */
+	public static final String NO_CONNECTION_TO_DB = "Error occurred. Please check your connection to Database.";
+	
 }

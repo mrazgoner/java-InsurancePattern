@@ -5,8 +5,6 @@ package com.entity;
  *
  */
 public class ScreensInfo {
-	
-
 
 	/**
 	 * Home page screen path.
@@ -58,9 +56,5 @@ public class ScreensInfo {
 	public static final String LOGGER_SCREEN = "/com/gui/LoggerUI.fxml";
 	
 	
-	/**
-	 *  Set external payment screen title
-	 */
-	public static final String EXTERNAL_PAYMENT_TITLE = "Pay Secure with ExtPayment";
 	
 }

@@ -199,7 +199,8 @@ public class ExistingClaimsController implements ScreensIF {
 			                            btn.setOnAction(event -> {
 			                            	
 			                            	try {
-												DatabaseController.updateDatabase("UPDATE client_claim SET status='" + 0 + "' WHERE customersId=" + claim.getCustomersId());
+												DatabaseController.updateDatabase("UPDATE client_claim SET status='" + 0 + "' WHERE id=" + claim.getId() + " AND customersId=" + claim.getCustomersId());
+												System.out.println("Successfully changed status of claim " + claim.getId() + " to closed in Database");
 												actionToDisplay(ActionType.CONTINUE,GeneralMessages.OPERATION_SUCCEEDED);
 												initialize();
 												return;

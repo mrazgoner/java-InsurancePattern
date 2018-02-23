@@ -271,11 +271,13 @@ public class OpenClaimController implements ScreensIF {
 			clearButtonPressed(event);
 			submitButton.setVisible(false);
 			clearButton.setVisible(false);
+			System.out.println("Successfully added new claim to Database");
 			actionToDisplay(ActionType.CONTINUE,GeneralMessages.OPERATION_SUCCEEDED);
 			return;
 		}
 		else
 		{
+			System.out.println("Error adding new claim to Database");
 			actionOnError(ActionType.CONTINUE,GeneralMessages.UNNKNOWN_ERROR);
 			return;
 		}

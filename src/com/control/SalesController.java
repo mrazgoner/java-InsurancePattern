@@ -29,6 +29,12 @@ import javafx.util.StringConverter;
 
 public class SalesController implements ScreensIF {
 
+	
+	/**
+	 * static variable for insurance cost
+	 */
+	public static String cost;
+	
 	/**
 	 * page gets the screen to load in the content pane.
 	 */
@@ -295,7 +301,8 @@ public class SalesController implements ScreensIF {
 			clearButtonPressed(event);
 			submitButton.setVisible(false);
 			clearButton.setVisible(false);
-			actionToDisplay(ActionType.CONTINUE,GeneralMessages.OPERATION_SUCCEEDED);
+			String msg = GeneralMessages.OPERATION_SUCCEEDED + " Insurance monthly cost: " + SalesController.cost + " ¤";
+			actionToDisplay(ActionType.CONTINUE, msg);
 			System.out.println("Insurance Added successfully");
 			return;
 		}

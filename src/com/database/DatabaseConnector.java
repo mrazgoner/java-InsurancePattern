@@ -4,6 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.entity.GeneralMessages;
+import com.enums.ActionType;
+
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 
 /**
  * DatabaseController:
@@ -71,10 +78,27 @@ public class DatabaseConnector implements DatabaseProxy{
 			System.out.println("SQLException: " + ex.getMessage());
 			System.out.println("SQLState: " + ex.getSQLState());
 			System.out.println("VendorError: " + ex.getErrorCode());
+			actionOnError(ActionType.TERMINATE,GeneralMessages.NO_CONNECTION_TO_DB);
 		}
 		System.out.println("SQL connection is sucessfull");
 
 	}// constructor
+
+	private void actionOnError(ActionType terminate, String noConnectionToDb) {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Error");
+		alert.setHeaderText(null);
+		alert.setContentText(noConnectionToDb);
+		alert.showAndWait();
+		if (terminate == ActionType.TERMINATE)
+		{
+			Platform.exit();
+			System.exit(1);
+		}
+		if (terminate == ActionType.CONTINUE)
+			return;
+		
+	}
 
 	public Connection getConnection() {
 		return this.connection;

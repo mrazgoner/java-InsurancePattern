@@ -177,42 +177,6 @@ public class HomepageController implements ScreensIF {
 
 	
 	/**
-	 * when pressed, load the external payment company screen.
-	 * @throws Exception
-	 */
-	public void btnPayForSubscriptionPressed() throws Exception
-	{	
-		try 
-		{
-			ScreenController screenController = new ScreenController();
-        	ExternalPaymentController extPayment = new ExternalPaymentController();
-        	extPayment.setProduct(subscription.get(0).toString() + " Subscription");
-        	if(subscription.get(0).toString().equals("Monthly"))
-        	{
-        		extPayment.setPrice("250");
-        		extPayment.setAction(4);	//Buy monthly subscription.
-        	}
-        	else
-        	{
-        		extPayment.setPrice("2800");
-        		extPayment.setAction(5);	//Buy yearly subscription.
-        	}
-        	//extPayment.searchedBookPage = searchedBookPage;
-        	        			        	
-			screenController.replaceSceneContent(ScreensInfo.EXTERNAL_PAYMENT_SCREEN,ScreensInfo.EXTERNAL_PAYMENT_TITLE);
-			Stage primaryStage = screenController.getStage();
-			ScreenController.setStage(primaryStage);
-			Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-			primaryStage.show();
-			primaryStage.setX(primaryScreenBounds.getMaxX()/2.0 - primaryStage.getWidth()/2.0);
-			primaryStage.setY(primaryScreenBounds.getMaxY()/2.0 - primaryStage.getHeight()/2.0);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	/**
 	 * Handler when pressed "sales". this function open the sales page.
 	 * @param event Gets the ActionEvent when the function called.
 	 * @throws IOException IO exception.

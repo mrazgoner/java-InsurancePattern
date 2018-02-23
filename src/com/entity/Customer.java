@@ -73,6 +73,8 @@ public class Customer implements Entity{
 		
 		System.out.println("Creating Insurance");
 		Insurance ins = builder.BuildInsurance(this, info);
+		
+		
 		double cost = ins.calculateCost(new CalculateNormalCost());
 	
 		System.out.println("Insurance monthly cost: " + cost );

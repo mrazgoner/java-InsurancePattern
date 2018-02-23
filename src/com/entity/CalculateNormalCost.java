@@ -12,11 +12,11 @@ public class CalculateNormalCost implements CalculateCostVisitor{
 		int area = obj.getArea();
 		
 		if(area < 15)
-			return 11 + 2.01*area + area*area*0.0001;
+			return 11 + 0.01*area + area*area*0.00001;
 		else if(area < 30) 
-			return 12 + 3.4301*area +  area*area*0.001;
+			return 12 + 0.00430*area +  area*area*0.0002;
 		else 
-			return 20 + 5.02*area +  area*area*0.0021;
+			return 20 + 0.502*area +  area*area*0.00021;
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class CalculateNormalCost implements CalculateCostVisitor{
 	private double costPerAge(int age)
 	{
 		double _age = (double)age;
-		double cost = 15.0 + _age*0.01 + _age*_age*0.002;
+		double cost = 15.0 + _age*0.01 + _age*_age*0.0002;
 		return cost;
 	}
 	
@@ -87,7 +87,7 @@ public class CalculateNormalCost implements CalculateCostVisitor{
 	private double costPerAge_Life(int age)
 	{
 		double _age = (double)age;
-		double cost = 13.0 + _age*0.005 + _age*_age*0.003;
+		double cost = 13.0 + _age*0.0005 + _age*_age*0.00003;
 		return cost;
 	}
 

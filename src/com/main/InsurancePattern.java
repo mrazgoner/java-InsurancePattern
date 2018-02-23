@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
 import com.control.HomepageController;
-import com.control.LoggerController;
 import com.control.ScreenController;
 import com.database.DatabaseController;
 import com.entity.GeneralMessages;
@@ -23,7 +22,6 @@ import javafx.stage.Stage;
 
 public class InsurancePattern extends Application {
 
-	public LoggerController loggerController;
 
 	static Logger logger;
 	static OutStreamPrinter outStream;

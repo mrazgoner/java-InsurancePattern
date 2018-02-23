@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.control.CustomerServiceController" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/control/CustomerServiceController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="254" x="3214" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.control.LoggerController" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/control/LoggerController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="209" x="3548" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.control.CreateCustomerController" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/control/CreateCustomerController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="369" width="217" x="1995" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.control.ScreenController" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/control/ScreenController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="231" x="531" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.control.OpenClaimController" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/control/OpenClaimController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="405" width="218" x="2699" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.control.ExistingClaimsController" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/control/ExistingClaimsController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="387" width="217" x="2957" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.control.HomepageController" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/control/HomepageController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="459" width="286" x="2739" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.control.SalesController" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/control/SalesController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="387" width="218" x="2252" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="9" language="java" name="com.database.EntityDao" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/database/EntityDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="168" x="2510" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="10" language="java" name="com.database.InsuranceDao" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/database/InsuranceDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="210" x="2201" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="11" language="java" name="com.database.DatabaseProxy" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/database/DatabaseProxy.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="248" x="3229" y="981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="12" language="java" name="com.database.CustomerDao" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/database/CustomerDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="208" x="2451" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.database.DatabaseController" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/database/DatabaseController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="298" x="3508" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.database.DatabaseConnector" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/database/DatabaseConnector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="248" x="3229" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="15" language="java" name="com.entity.Entity" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/Entity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="63" width="103" x="1499" y="1372"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="16" language="java" name="com.entity.Customer" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/Customer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="351" width="308" x="1170" y="981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="17" language="java" name="com.entity.CalculateCostVisitable" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/CalculateCostVisitable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="231" x="2165" y="1372"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="18" language="java" name="com.entity.HouseInsurance" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/HouseInsurance.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="231" x="2352" y="981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.entity.LifeInsurance" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/LifeInsurance.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="231" x="1810" y="981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.entity.ScreensInfo" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/ScreensInfo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="212" x="45" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.entity.CarInsurance" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/CarInsurance.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="231" x="2081" y="981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="22" language="java" name="com.entity.CalculateCostVisitor" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/CalculateCostVisitor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="249" x="812" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="23" language="java" name="com.entity.LifeInsuranceDirector" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/LifeInsuranceDirector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="167" x="1722" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.entity.CarInsuranceDirector" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/CarInsuranceDirector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="167" x="1308" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.entity.HouseInsuranceDirector" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/HouseInsuranceDirector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="167" x="1515" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.entity.WorkCapacityInsurance" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/WorkCapacityInsurance.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="231" x="1539" y="981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.entity.Insurance" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/Insurance.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="145" x="1810" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="28" language="java" name="com.entity.InsuranceDirector" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/InsuranceDirector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="167" x="1515" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="29" language="java" name="com.entity.InsuranceBuilder" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/InsuranceBuilder.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="232" x="1929" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.entity.WorkInsuranceDirector" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/WorkInsuranceDirector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="167" x="1101" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.entity.Claim" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/Claim.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="369" width="194" x="297" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="com.entity.CalculateNormalCost" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/entity/CalculateNormalCost.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="249" x="812" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="com.gui.ConsoleScreen" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/gui/ConsoleScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="123" x="4293" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="34" language="java" name="com.interfaces.ScreensIF" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/interfaces/ScreensIF.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="209" x="2815" y="981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="35" language="java" name="com.main.InsurancePattern" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/main/InsurancePattern.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="123" x="4065" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="com.main.Logger" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/main/Logger.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="134" x="4456" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="com.main.OutStreamPrinter" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/main/OutStreamPrinter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="188" x="4065" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="38" language="java" name="com.main.PrintObserver" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/main/PrintObserver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="121" x="4091" y="981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="39" language="java" name="com.settings.SettingsDataProxy" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/settings/SettingsDataProxy.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="228" x="3797" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="com.settings.Setting" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/settings/Setting.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="127" x="3871" y="981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="41" language="java" name="com.settings.SettingsFileProxy" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/settings/SettingsFileProxy.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="228" x="3831" y="1372"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="42" language="java" name="com.settings.SettingsXMLFile" project="InsurancePattern" 
+    file="/InsurancePattern/src/com/settings/SettingsXMLFile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="293" x="3517" y="981"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="43">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="44" name="loggerController"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="46">    
+    <bendpoint x="3076" y="482"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <realization id="47">    
+    <bendpoint x="3055" y="482"/>    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <association id="48">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="49" name="newInsurance"/>      
+      <multiplicity id="50" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="51">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="22"/>  
+  </realization>  
+  <realization id="52">    
+    <bendpoint x="3517" y="482"/>    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="53">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="54" name="connector"/>      
+      <multiplicity id="55" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="56">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <association id="57">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="58" name="observers"/>      
+      <multiplicity id="59" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="60">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="38"/>  
+  </realization>  
+  <association id="61">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="62" name="settings"/>      
+      <multiplicity id="63" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="64">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <realization id="65">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <association id="66">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="67" name="console"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="69">    
+    <bendpoint x="2708" y="482"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <association id="70">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="71" name="logger"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="73">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <realization id="74">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="28"/>  
+  </realization>  
+  <realization id="75">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="41"/>  
+  </realization>  
+  <realization id="76">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <realization id="77">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="38"/>  
+  </realization>  
+  <association id="78">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="79" name="instance"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="81">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="28"/>  
+  </realization>  
+  <association id="82">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="83" name="settings"/>      
+      <multiplicity id="84" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="86" name="userMain"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="88">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <realization id="89">    
+    <bendpoint x="1508" y="981"/>    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <association id="90">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="91" name="userMain"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="93">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <generalization id="94">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <association id="95">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="96" name="director"/>      
+      <multiplicity id="97" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="98">    
+    <bendpoint x="3840" y="981"/>    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="41"/>  
+  </realization>  
+  <association id="99">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="100" name="xmlDocument"/>      
+      <multiplicity id="101" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="102">    
+    <bendpoint x="2613" y="981"/>    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <realization id="103">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <realization id="104">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <generalization id="105">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <realization id="106">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <association id="107">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="108" name="outStream"/>      
+      <multiplicity id="109" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="110">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="111" name="instance"/>      
+      <multiplicity id="112" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="113">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <realization id="114">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="28"/>  
+  </realization>  
+  <realization id="115">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <realization id="116">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="28"/>  
+  </realization>  
+  <association id="117">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="118" name="userMain"/>      
+      <multiplicity id="119" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="120">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="27"/>  
+  </generalization>  
+  <realization id="121">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="38"/>  
+  </realization>  
+  <association id="122">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="123" name="client"/>      
+      <multiplicity id="124" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="125">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

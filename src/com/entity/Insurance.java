@@ -1,6 +1,6 @@
 package com.entity;
 
-public abstract class Insurance implements Entity{
+public abstract class Insurance implements Entity, CalculateCostVisitable{
 	
 	protected int clientID;
 	protected Customer client;

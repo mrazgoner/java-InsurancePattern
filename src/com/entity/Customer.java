@@ -54,6 +54,29 @@ public class Customer implements Entity{
 	
 	public String PrepareAddCliendInsuranceStatement(String insuranceType, String info) 
 	{
+		InsuranceBuilder builder = new InsuranceBuilder();
+		
+		switch (insuranceType) {
+		case "Car Insurance":
+			builder.setDirector(new CarInsuranceDirector());
+			break;
+		case "Life Insurance":
+			builder.setDirector(new LifeInsuranceDirector());
+			break;
+		case "House Insurance":
+			builder.setDirector(new HouseInsuranceDirector());
+			break;
+		case "Loss of Working Capacity Insurance":
+			builder.setDirector(new WorkInsuranceDirector());
+			break;
+		}
+		
+		System.out.println("Creating Insurance");
+		Insurance ins = builder.BuildInsurance(this, info);
+		double cost = ins.calculateCost(new CalculateNormalCost());
+	
+		System.out.println("Insurance monthly cost: " + cost );
+		
 		return "INSERT INTO client_insurance (`customersId`, `insuranceType`, `info`) "
 				+ "VALUES ('"+this.customersId+"','"+insuranceType+"','"+info+"')";
 	}

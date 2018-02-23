@@ -14,6 +14,11 @@ import com.entity.InsuranceDirector;
 import com.entity.LifeInsuranceDirector;
 import com.entity.WorkInsuranceDirector;
 
+/**
+ * 
+ *  data access class for the Insurance Entity in database
+ *
+ */
 public class InsuranceDao implements EntityDao<Insurance> {
 
 
@@ -52,7 +57,7 @@ public class InsuranceDao implements EntityDao<Insurance> {
 				InsuranceList.add(insurance);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("database error");
 			e.printStackTrace();
 		}
 
@@ -62,7 +67,14 @@ public class InsuranceDao implements EntityDao<Insurance> {
 
 	@Override
 	public boolean updateInDatabase(Insurance obj) {
-		return DatabaseController.addNewClientInsurance(obj.getClient(), obj.getType(), obj.getInfo());
+		if(DatabaseController.addNewClientInsurance(obj.getClient(), obj.getType(), obj.getInfo()))
+		{
+			System.out.println("Insurance Sucessfully Updated:\n"
+					+ " Client: "+ obj.getClientID()+"\n "
+					+ " Type: "+ obj.getType());
+			return true;
+		}
+			else return false;
 	}
 
 

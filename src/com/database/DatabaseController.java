@@ -127,7 +127,7 @@ public class DatabaseController implements DatabaseProxy{
 			sqlResult = true;
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Failed updating insurance");
 			e.printStackTrace();
 		}
 

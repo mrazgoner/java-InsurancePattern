@@ -134,6 +134,7 @@ public class CreateCustomerController implements ScreensIF {
 	 */
 	@FXML
 	public void submitButtonPressed(ActionEvent event) throws IOException {
+		System.out.println("Creating new customer");
 		Boolean res=false;
 		String fName=fNameTextField.getText().trim();
 		String lName=lNameTextField.getText().trim();
@@ -183,11 +184,13 @@ public class CreateCustomerController implements ScreensIF {
 			{
 				clearButtonPressed(event);
 				actionToDisplay(ActionType.CONTINUE,GeneralMessages.OPERATION_SUCCEEDED);
+				System.out.println("Customer Created");
 				return;
 			}
 			else
 			{
 				actionOnError(ActionType.CONTINUE,GeneralMessages.UNNKNOWN_ERROR);
+				System.out.println("Failed Creating Customer");
 				return;
 			}
 		}

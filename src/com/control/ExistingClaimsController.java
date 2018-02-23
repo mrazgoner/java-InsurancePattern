@@ -129,6 +129,7 @@ public class ExistingClaimsController implements ScreensIF {
 	{
 		ObservableList<Claim> existingClaims = FXCollections.observableArrayList();
 		try {
+			System.out.println("Getting list of claims from Database");
 			ResultSet res=DatabaseController.searchInDatabase("SELECT * FROM client_claim");
 			while (res.next()) {
 				String status;

@@ -156,6 +156,7 @@ public class OpenClaimController implements ScreensIF {
 		              Customer customer = (Customer) chooseCustomerChoiceBox.getValue();
 		              String customersId = customer.getCustomersId();
 		              try {
+		            	System.out.println("Retriving insurance types");
 						ResultSet res=DatabaseController.searchInDatabase("SELECT insuranceType FROM client_insurance WHERE customersId='" + customersId + "'");
 			            ArrayList customerInsurances = new ArrayList<String>();
 						while (res.next()) {
@@ -165,7 +166,7 @@ public class OpenClaimController implements ScreensIF {
 								customerInsurances)
 							);
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
+						System.out.println("Error retriving insurance types");
 						e.printStackTrace();
 					}
 

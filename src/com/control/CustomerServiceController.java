@@ -127,7 +127,7 @@ public class CustomerServiceController implements ScreensIF {
 		try {
 			screenController.replaceSceneContent(ScreensInfo.HOMEPAGE_SCREEN,ScreensInfo.HOMEPAGE_TITLE);
 		} catch (Exception e) {
-			System.out.println("failed to load screen");
+			System.out.println("*failed to load screen");
 			e.printStackTrace();
 		}	
 	}
@@ -145,7 +145,7 @@ public class CustomerServiceController implements ScreensIF {
 		try {
 			screenController.replaceSceneContent(ScreensInfo.HOMEPAGE_SCREEN,ScreensInfo.HOMEPAGE_TITLE);
 		} catch (Exception e) {
-			System.out.println("failed to load screen");
+			System.out.println("*failed to load screen");
 			e.printStackTrace();
 		}	
 	}

@@ -57,7 +57,7 @@ public class InsuranceDao implements EntityDao<Insurance> {
 				InsuranceList.add(insurance);
 			}
 		} catch (SQLException e) {
-			System.out.println("database error");
+			System.out.println("*database error");
 			e.printStackTrace();
 		}
 
@@ -69,7 +69,7 @@ public class InsuranceDao implements EntityDao<Insurance> {
 	public boolean updateInDatabase(Insurance obj) {
 		if(DatabaseController.addNewClientInsurance(obj.getClient(), obj.getType(), obj.getInfo()))
 		{
-			System.out.println("Insurance Sucessfully Updated:\n"
+			System.out.println("*Insurance Sucessfully Updated:\n"
 					+ " Client: "+ obj.getClientID()+"\n "
 					+ " Type: "+ obj.getType());
 			return true;

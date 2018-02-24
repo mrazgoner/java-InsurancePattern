@@ -136,7 +136,7 @@ public class SalesController implements ScreensIF {
 		              Customer customer = (Customer) chooseCustomerChoiceBox.getValue();
 		              String customersId = customer.getCustomersId();
 		              try {		 
-		            	  System.out.println("Retriving Insurances");
+		            	  System.out.println("*Retriving Insurances");
 						ResultSet res=DatabaseController.searchInDatabase("SELECT insuranceType FROM client_insurance WHERE customersId='" + customersId + "'");
 			            ArrayList customerInsurances = new ArrayList<String>();
 			            ArrayList availableInsurances = new ArrayList<String>();
@@ -155,7 +155,7 @@ public class SalesController implements ScreensIF {
 								availableInsurances)
 							);
 					} catch (SQLException e) {
-						System.out.println("Error retriving Insurances");
+						System.out.println("*Error retriving Insurances");
 						e.printStackTrace();
 					}
 
@@ -294,7 +294,7 @@ public class SalesController implements ScreensIF {
 		else
 			info=customer.getBirthDate();
 
-		System.out.println("Updating new Insurance");
+		System.out.println("*Updating new Insurance");
 		res=DatabaseController.addNewClientInsurance(customer, insuranceType, info);
 		if(res)
 		{
@@ -303,13 +303,13 @@ public class SalesController implements ScreensIF {
 			clearButton.setVisible(false);
 			String msg = GeneralMessages.OPERATION_SUCCEEDED + " Insurance monthly cost: " + SalesController.cost + " ¤";
 			actionToDisplay(ActionType.CONTINUE, msg);
-			System.out.println("Insurance Added successfully");
+			System.out.println("*Insurance Added successfully");
 			return;
 		}
 		else
 		{
 			actionOnError(ActionType.CONTINUE,GeneralMessages.UNNKNOWN_ERROR);
-			System.out.println("Insurance Adding failed");
+			System.out.println("*Insurance Adding failed");
 			return;
 		}
 	}

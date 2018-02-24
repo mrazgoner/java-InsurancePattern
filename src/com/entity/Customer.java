@@ -72,13 +72,13 @@ public class Customer implements Entity{
 			break;
 		}
 		
-		System.out.println("Creating Insurance");
+		System.out.println("*Creating Insurance");
 		Insurance ins = builder.BuildInsurance(this, info);
 		double cost = ins.calculateCost(new CalculateNormalCost());
 		String cost2DigDec = String.format("%.2f", cost);
 		SalesController.cost = cost2DigDec;
 	
-		System.out.println("Insurance monthly cost: " + cost );
+		System.out.println("*Insurance monthly cost: " + cost );
 		
 		return "INSERT INTO client_insurance (`customersId`, `insuranceType`, `info`) "
 				+ "VALUES ('"+this.customersId+"','"+insuranceType+"','"+info+"')";

@@ -25,7 +25,7 @@ public class WorkCapacityInsurance extends Insurance implements CalculateCostVis
 		try {
 			return new SimpleDateFormat("yyyy-MM-dd").parse(ClientBirthDate);
 		} catch (ParseException e) {
-			System.out.println("Date is invalid");
+			System.out.println("*Date is invalid");
 			e.printStackTrace();
 			return null;
 		}

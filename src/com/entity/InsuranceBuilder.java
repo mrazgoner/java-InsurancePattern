@@ -27,7 +27,7 @@ public class InsuranceBuilder {
 		Insurance inst = newInsurance;
 		newInsurance = null;
 		
-		System.out.println("Creating Insurance");
+		System.out.println("*Creating Insurance");
 		
 		return inst;
 	}

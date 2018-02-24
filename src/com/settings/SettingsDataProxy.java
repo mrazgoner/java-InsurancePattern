@@ -60,7 +60,7 @@ public class SettingsDataProxy implements SettingsFileProxy{
 		}
 				
 		System.out.println("Settings are:");
-		System.out.print(this.toString());
+		System.out.println(this.toString());
 		
 	}
 	

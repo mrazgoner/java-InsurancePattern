@@ -156,7 +156,7 @@ public class OpenClaimController implements ScreensIF {
 		              Customer customer = (Customer) chooseCustomerChoiceBox.getValue();
 		              String customersId = customer.getCustomersId();
 		              try {
-		            	System.out.println("Retriving insurance types");
+		            	System.out.println("*Retriving insurance types");
 						ResultSet res=DatabaseController.searchInDatabase("SELECT insuranceType FROM client_insurance WHERE customersId='" + customersId + "'");
 			            ArrayList customerInsurances = new ArrayList<String>();
 						while (res.next()) {
@@ -166,7 +166,7 @@ public class OpenClaimController implements ScreensIF {
 								customerInsurances)
 							);
 					} catch (SQLException e) {
-						System.out.println("Error retriving insurance types");
+						System.out.println("*Error retriving insurance types");
 						e.printStackTrace();
 					}
 
@@ -271,13 +271,13 @@ public class OpenClaimController implements ScreensIF {
 			clearButtonPressed(event);
 			submitButton.setVisible(false);
 			clearButton.setVisible(false);
-			System.out.println("Successfully added new claim to Database");
+			System.out.println("*Successfully added new claim to Database");
 			actionToDisplay(ActionType.CONTINUE,GeneralMessages.OPERATION_SUCCEEDED);
 			return;
 		}
 		else
 		{
-			System.out.println("Error adding new claim to Database");
+			System.out.println("*Error adding new claim to Database");
 			actionOnError(ActionType.CONTINUE,GeneralMessages.UNNKNOWN_ERROR);
 			return;
 		}

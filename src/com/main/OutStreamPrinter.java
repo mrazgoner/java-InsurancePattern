@@ -6,8 +6,6 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Date;
 
-
-
 public class OutStreamPrinter extends OutputStream {
 
 	private PrintStream printStream;
@@ -17,31 +15,29 @@ public class OutStreamPrinter extends OutputStream {
 		super();
 		setPrintStream(new PrintStream(this));
 	}
-	
+
 	public void addObserver(PrintObserver obs) {
 		observers.add(obs);
 	}
-	
+
 	public void remove(PrintObserver obs) {
 		observers.remove(obs);
 	}
 
 	@Override
 	public void write(int b) throws IOException {
-		NotifyWrite(String.valueOf((char)b));
-		if(b == (int)'\n')
-		{
-			NotifyWrite("[" + (new Date()).toString() + "] ");
-			NotifyWrite("\n\n");
+		if (b == (int) '*') {
+			NotifyWrite("[" + (new Date()).toString() + "] : ");
 		}
+		else
+			NotifyWrite(String.valueOf((char) b));
 	}
 
-	private void NotifyWrite(String str)
-	{
-		for(PrintObserver obs : observers) {
+	private void NotifyWrite(String str) {
+		for (PrintObserver obs : observers) {
 			obs.append(str);
 		}
-		
+
 	}
 
 	public PrintStream getPrintStream() {

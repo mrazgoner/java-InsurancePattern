@@ -129,7 +129,7 @@ public class ExistingClaimsController implements ScreensIF {
 	{
 		ObservableList<Claim> existingClaims = FXCollections.observableArrayList();
 		try {
-			System.out.println("Getting list of claims from Database");
+			System.out.println("*Getting list of claims from Database");
 			ResultSet res=DatabaseController.searchInDatabase("SELECT * FROM client_claim");
 			while (res.next()) {
 				String status;
@@ -200,7 +200,7 @@ public class ExistingClaimsController implements ScreensIF {
 			                            	
 			                            	try {
 												DatabaseController.updateDatabase("UPDATE client_claim SET status='" + 0 + "' WHERE id=" + claim.getId() + " AND customersId=" + claim.getCustomersId());
-												System.out.println("Successfully changed status of claim " + claim.getId() + " to closed in Database");
+												System.out.println("*Successfully changed status of claim " + claim.getId() + " to closed in Database");
 												actionToDisplay(ActionType.CONTINUE,GeneralMessages.OPERATION_SUCCEEDED);
 												initialize();
 												return;

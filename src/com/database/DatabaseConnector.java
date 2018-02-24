@@ -29,6 +29,13 @@ public class DatabaseConnector implements DatabaseProxy{
 	private static String password;
 
 	
+	public static synchronized DatabaseConnector getInstance(){
+        if(instance == null){
+            instance = new DatabaseConnector();
+        }
+        return instance;
+    }
+	
 	/**
 	 * initialize or reset JDBC, not thread safe.
 	 * should be use at startup
@@ -47,13 +54,6 @@ public class DatabaseConnector implements DatabaseProxy{
 		password = Password;
 		instance = new DatabaseConnector();
 	}
-
-	public static synchronized DatabaseConnector getInstance(){
-        if(instance == null){
-            instance = new DatabaseConnector();
-        }
-        return instance;
-    }
 	
 
 	/**
@@ -66,7 +66,7 @@ public class DatabaseConnector implements DatabaseProxy{
 		try 
 		{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-		} catch (Exception ex) {System.out.println("Cannot initialize SQL driver");}
+		} catch (Exception ex) {System.out.println("*Cannot initialize SQL driver");}
 
 		try 
 		{
@@ -75,12 +75,12 @@ public class DatabaseConnector implements DatabaseProxy{
 
 		} catch (SQLException ex) 
 		{/* handle any errors*/
-			System.out.println("SQLException: " + ex.getMessage());
-			System.out.println("SQLState: " + ex.getSQLState());
-			System.out.println("VendorError: " + ex.getErrorCode());
+			System.out.println("*SQLException: " + ex.getMessage());
+			System.out.println("*SQLState: " + ex.getSQLState());
+			System.out.println("*VendorError: " + ex.getErrorCode());
 			actionOnError(ActionType.TERMINATE,GeneralMessages.NO_CONNECTION_TO_DB);
 		}
-		System.out.println("SQL connection is sucessfull");
+		System.out.println("*SQL connection is sucessfull");
 
 	}// constructor
 
@@ -118,7 +118,7 @@ public class DatabaseConnector implements DatabaseProxy{
 		try {
 			connection.close();
 		} catch (SQLException e) {
-			System.out.println("Unable to close connection to DB");
+			System.out.println("*Unable to close connection to DB");
 			e.printStackTrace();
 		}
 		

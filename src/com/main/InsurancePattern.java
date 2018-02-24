@@ -86,9 +86,9 @@ public class InsurancePattern extends Application {
 					settings.getPassword());
 
 
-			System.out.println("Connected to database successfully");
+			System.out.println("*Connected to database successfully");
 		} catch (Exception e) {
-			System.out.println("SQL connection Failed");
+			System.out.println("*SQL connection Failed");
 			return;
 		}
 		return;

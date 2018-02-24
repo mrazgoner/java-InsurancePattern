@@ -75,13 +75,13 @@ public class SettingsXMLFile implements SettingsFileProxy{
 			StreamResult result = new StreamResult(file);
 			transformer.transform(source, result);
 
-			System.out.println("saving settings:");
+			System.out.println("*saving settings:");
 
 			// Output to console for testing
 			StreamResult consoleResult = new StreamResult(System.out);
 			transformer.transform(source, consoleResult);
 		} catch (Exception e) {
-			System.out.println("failed writing to XML");
+			System.out.println("*failed writing to XML");
 			e.printStackTrace();
 		}
 

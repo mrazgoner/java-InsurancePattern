@@ -22,7 +22,7 @@ public class Logger implements PrintObserver {
 			buffer.write(str);
 			buffer.flush();
 		} catch (IOException e) {
-			System.out.println("failed writing to log file");
+			System.out.println("*failed writing to log file");
 			e.printStackTrace();
 		}	
 	}
@@ -33,7 +33,7 @@ public class Logger implements PrintObserver {
 			writer =  new FileWriter(logFile.getAbsoluteFile(),true);
 			buffer = new BufferedWriter(writer);
 		} catch ( IOException e) {
-			System.out.println("error creating file stream, file not found");
+			System.out.println("*error creating file stream, file not found");
 			e.printStackTrace();
 		}
 	}
@@ -50,7 +50,7 @@ public class Logger implements PrintObserver {
 			try {
 				logFile.createNewFile();
 			} catch (IOException e) {
-				System.out.println("error creating file");
+				System.out.println("*error creating file");
 				e.printStackTrace();
 			}
 		}

@@ -25,9 +25,9 @@ public class CustomerDao implements EntityDao<Customer> {
 		ArrayList<Customer> customers = DatabaseController.getCustomers();
 		if(customers!= null)
 		{
-			System.out.println("successfully retrived " + customers.size() + " Customers from Database");
+			System.out.println("*successfully retrived " + customers.size() + " Customers from Database");
 		}
-		else System.out.println("Error retriving Customers");
+		else System.out.println("*Error retriving Customers");
 		
 		return customers;
 	}
